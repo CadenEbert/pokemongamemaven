@@ -1,0 +1,8 @@
+{
+    "maven.terminal.favorites": [
+        {
+            "command": "{     \"java.project.referencedLibraries\": [         \"lib/**/*.jar\",         \"C:\\Users\\cebert676\\Desktop\\gson     ] }",
+            "debug": false
+        }
+    ]
+}
