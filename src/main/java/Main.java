@@ -20,7 +20,7 @@ public class Main {
 
     public static void main(String args[]) {
         // new GUI();
-        String[] pokemon = { "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle",
+        String[] pokeball = { "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle",
                 "Wartortle", "Blastoise", "Caterpie", "Metapod", "Butterfree", "Weedle", "Kakuna", "Beedrill", "Pidgey",
                 "Pidgeotto", "Pidgeot", "Rattata", "Raticate", "Spearow", "Fearow", "Ekans", "Arbok", "Pikachu",
                 "Sandshrew", "Nidoran", "Nidoqueen", "Nidoran", "Nidoking", "Clefairy", "Clefable", "Vulpix",

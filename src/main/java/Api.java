@@ -36,46 +36,27 @@ public class Api {
             "Dratini", "Dragonair", "Dragonite", "Mewtwo", "Mew" };
 
     public static void main(String[] args) throws IOException {
-        // BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
-        // Transcript transcript = new Transcript();
-        // transcript.setSprite("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png");
-
-        // Gson gson = new Gson();
-        // String jsonRequest = gson.toJson(transcript);
-        // System.out.println(jsonRequest);
-
-        // for (int i = 0; i < pokemon.length; i++){
-
-        // @SuppressWarnings("deprecation")
-        // URL url = new URL("https://pokeapi.co/api/v2/pokemon/pikachu/");
-        // HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        // connection.setRequestMethod("GET");
-
-        // int responseCode = connection.getResponseCode();
-
-        // if (responseCode == HttpsURLConnection.HTTP_OK){
-        // Scanner scanner = new Scanner(connection.getInputStream());
-        // while(scanner.hasNext()){
-        // writer.write(scanner.nextLine());
-        // }
-        // scanner.close();
-        // writer.close();
-
-        // } else {
-        // System.out.println("error");
-        // }
-        // }
+        FileWriter writer = new FileWriter("Output");
 
         OkHttpClient client = new OkHttpClient();
 
-        Request request = new Request.Builder()
-                .url("https://pokeapi.co/api/v2/pokemon/pikachu/")
+
+        for (int i = 0; i < pokemon.length; i++) {
+            Request request = new Request.Builder()
+                .url("https://pokeapi.co/api/v2/pokemon/" + pokemon[i].toLowerCase())
                 .build();
 
-        Response response = client.newCall(request).execute();
-        String responseString = response.body().string();
+            Response response = client.newCall(request).execute();
+            String responseString = response.body().string();
 
-        System.out.println(parse(responseString));
+            try {
+                writer.write(System.getProperty( "line.separator" ));
+                writer.write(parse(responseString));
+            } catch (Exception e){
+
+            }
+        } 
+        writer.close();
     }
 
 
@@ -99,7 +80,7 @@ class Transcript {
     public void setSprite(String sprites) {
         this.sprites = sprites;
     }
-
+    
 }
 
 
