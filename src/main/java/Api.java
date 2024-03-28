@@ -8,6 +8,10 @@ import java.net.URL;
 import java.util.Scanner;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
@@ -69,9 +73,20 @@ public class Api {
                 .build();
 
         Response response = client.newCall(request).execute();
-        System.out.println(response.body().string());
+        String responseString = response.body().string();
+
+        System.out.println(parse(responseString));
     }
 
+
+    public static String parse(String jsonLine) {
+        @SuppressWarnings("deprecation")
+        JsonElement jelement = new JsonParser().parse(jsonLine);
+        JsonObject  jobject = jelement.getAsJsonObject();
+        jobject = jobject.getAsJsonObject("sprites");
+        String result = jobject.get("front_default").getAsString();
+        return result;
+}
 }
 
 class Transcript {
@@ -86,3 +101,5 @@ class Transcript {
     }
 
 }
+
+
