@@ -9,8 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
     </properties>
 
     <!-- <dependency>
@@ -28,6 +28,36 @@
 
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.codeartisans.javafx</groupId>
+            <artifactId>javafx-maven-plugin-parent</artifactId>
+            <version>1.2</version>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>11.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jfxcore</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>18-ea+1</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx</artifactId>
+            <version>23-ea+3</version>
+            <type>pom</type>
+        </dependency>
+
+
+
 
         <dependency>
             <groupId>com.squareup.okhttp</groupId>
