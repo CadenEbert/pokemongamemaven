@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -6,7 +8,7 @@ import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
 
-        public void start(Stage primaryStage) throws Exception {
+        public void start(Stage primaryStage) throws IOException {
                 Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
                 primaryStage.setTitle("Game");
                 primaryStage.setScene(new Scene(root, 300 ,300));
@@ -74,7 +76,7 @@ public class Main extends Application {
                 //                 "Alakazam", "Machamp", "Victreebel", "Golem", "Farfetch'd", "Kangaskhan", "Gengar",
                 //                 "Onix", "Magmar", "Gyarados", "Lapras", "Aerodactyl", "Snorlax", "Articuno", "Zapdos",
                 //                 "Moltres", "Dragonite", "Mewtwo", "Mew" };
-                launch(args);
+                launch();
                 
 
 
