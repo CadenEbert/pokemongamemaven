@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.stage.Stage?>
 
-<Stage xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Stage xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <scene>
         <Scene>
             <AnchorPane prefHeight="503.0" prefWidth="857.0">
@@ -118,16 +118,6 @@
                         </font>
                      </Text>
                   </bottom>
-                  <left>
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Incenses: 0" BorderPane.alignment="CENTER">
-                        <font>
-                           <Font name="Power Green" size="18.0" />
-                        </font>
-                        <BorderPane.margin>
-                           <Insets left="5.0" top="10.0" />
-                        </BorderPane.margin>
-                     </Text>
-                  </left>
                </BorderPane>
             </children></AnchorPane>
         </Scene>

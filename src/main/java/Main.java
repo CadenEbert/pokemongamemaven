@@ -11,7 +11,7 @@ public class Main extends Application {
         public void start(Stage primaryStage) throws IOException {
                 Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
                 primaryStage.setTitle("Game");
-                primaryStage.setScene(new Scene(root, 300 ,300));
+                primaryStage.setScene(new Scene(root));
                 primaryStage.show();
         }
 
