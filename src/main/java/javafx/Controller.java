@@ -9,7 +9,6 @@ public class Controller {
 
     @FXML
     void countMoney(MouseEvent event) {
-        
 
     }
 

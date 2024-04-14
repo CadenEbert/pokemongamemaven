@@ -115,9 +115,6 @@
                <font>
                   <Font name="Power Green" size="36.0" />
                </font>
-               <BorderPane.margin>
-                  <Insets bottom="10.0" />
-               </BorderPane.margin>
             </Text>
          </bottom>
       </BorderPane>
