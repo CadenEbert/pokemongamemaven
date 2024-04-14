@@ -12,7 +12,7 @@
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <javafx.version>21.0.1</javafx.version>
+        <javafx.version>20.0.1</javafx.version>
         <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
     </properties>
 
@@ -36,26 +36,6 @@
       <version>5.10.1</version>
   </dependency>
 
-        <!-- <dependency>
-            <groupId>org.jfxcore</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>18-ea+1</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.jfxcore</groupId>
-            <artifactId>javafx</artifactId>
-            <version>18-ea+1</version>
-            <type>pom</type>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.jfxcore</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>18-ea+1</version>
-        </dependency> -->
 
 
         <dependency>
@@ -79,7 +59,7 @@
         <artifactId>javafx-maven-plugin</artifactId>
         <version>${javafx.maven.plugin.version}</version>
         <configuration>
-          <mainClass>Main</mainClass>
+          <mainClass>javafx.Main</mainClass>
         </configuration>
       </plugin>
     </plugins>
