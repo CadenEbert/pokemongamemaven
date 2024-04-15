@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="503.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Controller">
+<AnchorPane prefHeight="503.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Controller">
    <children>
       <HBox layoutY="294.0" prefHeight="212.0" prefWidth="608.0">
          <children>
@@ -35,12 +35,12 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#openPokeBall" text="Buy" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                  <Button fx:id="pokeballButton" alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#openPokeBall" text="Buy" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                      <GridPane.margin>
                         <Insets bottom="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <ImageView fitHeight="143.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                  <ImageView fitHeight="129.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets top="10.0" />
                      </GridPane.margin>
@@ -69,7 +69,7 @@
                         <Insets bottom="40.0" />
                      </GridPane.margin>
                   </Text>
-                  <ImageView fitHeight="143.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                  <ImageView fitHeight="122.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                      <image>
                         <Image url="@../images/6-93-removebg-preview.png" />
                      </image>
@@ -111,7 +111,7 @@
             </ImageView>
          </center>
          <bottom>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Coins: 0" textAlignment="CENTER" BorderPane.alignment="CENTER">
+            <Text fx:id="coinsText" strokeType="OUTSIDE" strokeWidth="0.0" text="Coins: 0" textAlignment="CENTER" BorderPane.alignment="CENTER">
                <font>
                   <Font name="Power Green" size="36.0" />
                </font>
