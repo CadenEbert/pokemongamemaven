@@ -23,7 +23,7 @@
                <children>
                   <AnchorPane fx:id="pokemonPanel" prefHeight="131.0" prefWidth="122.0">
                      <children>
-                        <ImageView fx:id="image" fitHeight="99.0" fitWidth="116.0" layoutX="3.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="pokemonImage" fitHeight="99.0" fitWidth="116.0" layoutX="3.0" pickOnBounds="true" preserveRatio="true" />
                         <Button fx:id="sellButton" layoutX="61.0" layoutY="99.0" mnemonicParsing="false" onMouseClicked="#sell" text="Sell" />
                         <Text fx:id="coinsPokeText" layoutX="14.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coins" />
                      </children>
