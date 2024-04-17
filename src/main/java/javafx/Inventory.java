@@ -1,5 +1,10 @@
 package javafx;
 
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.io.File;
+
+
 public class Inventory extends Main {
 
     public String image;
@@ -24,12 +29,13 @@ public class Inventory extends Main {
     "Moltres","Dratini", "Dragonair", "Dragonite", "Mewtwo", "Mew" };
 
     public static void main(String[] args) {
-        System.out.println(getImage("Bulbasaur"));
+        
     }
 
-    public Inventory(String name){
+    public Inventory(String name, String image, int cost){
         this.name = name;
-        newRoll(name);
+        this.image = image;
+        this.cost = cost;
     }
     
 
@@ -38,17 +44,27 @@ public class Inventory extends Main {
     }
 
 
-    public static String getImage(String name){
+    public static String getImage(String name) throws FileNotFoundException {
         int index = 0;
+        String image = "";
+        Scanner sc = new Scanner(new File("pokemon.txt"));
+        
+        
 
-        for (int i = 0; i < pokemon.length; i++) {
+        for (int i = 1; i < pokemon.length; i++) {
             if (name == pokemon[i]) {
                 index = i;
             }
         }
-        System.out.println(index);
+        String line = sc.nextLine();
+        while (sc.hasNext()){
+            if (line.contains(index)) {
 
-        return " ";
+            }
+
+        }
+        return image;
+        
     }
     
 }
