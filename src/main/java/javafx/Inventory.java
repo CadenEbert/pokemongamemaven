@@ -58,7 +58,7 @@ public class Inventory extends Main {
         }
         String line = sc.nextLine();
         while (sc.hasNext()){
-            if (line.contains(index)) {
+            if (line.contains((char)index)) {
 
             }
 
