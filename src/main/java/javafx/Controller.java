@@ -30,7 +30,7 @@ public class Controller extends Main {
     @FXML
     void openPokeBall(MouseEvent event) {
         if (coins >= 50) {
-            coinsText.setText("it worked");
+            
 
         }
 
