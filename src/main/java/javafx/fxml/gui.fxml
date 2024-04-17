@@ -15,11 +15,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="503.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Controller">
+<AnchorPane prefHeight="503.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Controller">
    <children>
       <HBox layoutY="294.0" prefHeight="212.0" prefWidth="608.0">
          <children>
-            <FlowPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="258.0" prefWidth="608.0" />
+            <FlowPane fx:id="inventory" nodeOrientation="LEFT_TO_RIGHT" prefHeight="258.0" prefWidth="608.0">
+               <children>
+                  <AnchorPane fx:id="pokemonPanel" prefHeight="131.0" prefWidth="122.0">
+                     <children>
+                        <ImageView fx:id="image" fitHeight="99.0" fitWidth="116.0" layoutX="3.0" pickOnBounds="true" preserveRatio="true" />
+                        <Button fx:id="sellButton" layoutX="61.0" layoutY="99.0" mnemonicParsing="false" onMouseClicked="#sell" text="Sell" />
+                        <Text fx:id="coinsPokeText" layoutX="14.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coins" />
+                     </children>
+                  </AnchorPane>
+               </children></FlowPane>
          </children>
       </HBox>
       <VBox layoutX="609.0" prefHeight="503.0" prefWidth="247.0">
