@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Inventory",
+            "request": "launch",
+            "mainClass": "javafx.Inventory",
+            "projectName": "pokemongamemaven"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "javafx.Main",

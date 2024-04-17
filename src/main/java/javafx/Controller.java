@@ -19,7 +19,7 @@ public class Controller extends Main {
     private Text coinsPokeText;
 
     @FXML
-    private ImageView image;
+    private ImageView pokemonImage;
 
     @FXML
     private Text coinsText;
