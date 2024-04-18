@@ -39,13 +39,14 @@ public class Inventory extends Main {
     }
     
 
-    public void newRoll(String name){
-         
+    public void newRoll(String name) throws FileNotFoundException{
+        String image = getImage(name);
+        int cost = getCost(name);     
     }
 
 
     public static String getImage(String name) throws FileNotFoundException {
-        int index = 0;
+        String index = "";
         String image = "";
         Scanner sc = new Scanner(new File("pokemon.txt"));
         
@@ -53,18 +54,27 @@ public class Inventory extends Main {
 
         for (int i = 1; i < pokemon.length; i++) {
             if (name == pokemon[i]) {
-                index = i;
+                index = String.valueOf(i);
             }
         }
-        String line = sc.nextLine();
+        
+
         while (sc.hasNext()){
-            if (line.contains((char)index)) {
+            String line = sc.nextLine();
+            if (line.contains(index)) {
+                image = line;
+                break;
 
             }
 
         }
+        sc.close();
         return image;
         
+    }
+
+    public int getCost(String name) {
+        return 0;
     }
     
 }
