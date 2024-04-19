@@ -2,14 +2,20 @@ package javafx;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+
 import java.io.File;
 
 
 public class Inventory extends Main {
 
-    public String image;
-    public String name;
-    public int cost;
+    private static ImageView image;
+    private String name;
+    private int cost;
+    
     public static String[] pokemon = { "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard",
     "Squirtle", "Wartortle", "Blastoise", "Caterpie", "Metapod", "Butterfree", "Weedle", "Kakuna","Beedrill",
     "Pidgey", "Pidgeotto", "Pidgeot", "Rattata", "Raticate", "Spearow", "Fearow", "Ekans", "Arbok","Pikachu",
@@ -30,18 +36,27 @@ public class Inventory extends Main {
 
     public static void main(String[] args) {
         
+
+        
     }
 
-    public Inventory(String name, String image, int cost){
+    public Inventory(String name, ImageView image, int cost, AnchorPane pane){
         this.name = name;
         this.image = image;
         this.cost = cost;
+        this.pane = pane;
     }
     
 
     public void newRoll(String name) throws FileNotFoundException{
         String image = getImage(name);
-        int cost = getCost(name);     
+        ImageView newImage = new ImageView(image);
+        int cost = getCost(name);  
+        AnchorPane pane = new AnchorPane();
+        Inventory panelInventory = new Inventory(name, newImage, cost, pane);
+        Controller.pokemonPanel.getChildren().add(panelInventory);
+        
+        
     }
 
 
@@ -50,14 +65,11 @@ public class Inventory extends Main {
         String image = "";
         Scanner sc = new Scanner(new File("pokemon.txt"));
         
-        
-
         for (int i = 1; i < pokemon.length; i++) {
             if (name == pokemon[i]) {
                 index = String.valueOf(i);
             }
         }
-        
 
         while (sc.hasNext()){
             String line = sc.nextLine();

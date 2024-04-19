@@ -2,6 +2,9 @@ package javafx;
 
 
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -28,7 +31,7 @@ public class Controller extends Main {
     private Button pokeballButton;
 
     @FXML
-    private AnchorPane pokemonPanel;
+    public static AnchorPane pokemonPanel;
 
     @FXML
     private Button sellButton;
@@ -39,6 +42,14 @@ public class Controller extends Main {
         coins += 1;
 
     }
+
+
+    @FXML
+    public void initialize(URL url, ResourceBundle rb) {
+        
+
+    }
+
 
     @FXML
     void openGreatBall(MouseEvent event) {
