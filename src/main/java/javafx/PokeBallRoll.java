@@ -1,8 +1,6 @@
 package javafx;
 
 
-import java.util.Dictionary;
-
 
 public class PokeBallRoll  {
 

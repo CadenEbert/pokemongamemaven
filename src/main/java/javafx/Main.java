@@ -3,8 +3,6 @@ package javafx;
 import java.io.IOException;
 import java.nio.file.Paths;
 
-import javax.print.DocFlavor.URL;
-
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
         public int coins = 0;
+
+        
 
 
 

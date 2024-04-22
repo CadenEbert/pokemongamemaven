@@ -59,6 +59,8 @@ public class Controller extends Main {
     @FXML
     void openPokeBall(MouseEvent event) {
         if (coins >= 50) {
+            Inventory pokemonP = new Inventory("Bulbasaur", null, "3000");
+            inventory.getChildren().add(inventory);
             
 
         }

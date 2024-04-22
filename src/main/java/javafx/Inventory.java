@@ -3,7 +3,7 @@ package javafx;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import javafx.scene.image.Image;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -16,9 +16,9 @@ public class Inventory extends Main {
     private static ImageView image;
     private String name;
     private Text pokemonCost;
-    private AnchorPane pane;
+    private AnchorPane pane = new AnchorPane();
+    private Button button = new Button("Sell");
 
-    pane.getChildren().addAll(pane);
     
     public static String[] pokemon = { "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard",
     "Squirtle", "Wartortle", "Blastoise", "Caterpie", "Metapod", "Butterfree", "Weedle", "Kakuna","Beedrill",
@@ -44,20 +44,24 @@ public class Inventory extends Main {
         
     }
 
-    public Inventory(String name, ImageView image, int cost){
+    @Override
+    public void init() {
+        AnchorPane.setTopAnchor(button, 10.0);
+        AnchorPane.setLeftAnchor(button, 20.0);
+        AnchorPane.setTopAnchor(image, 10.0);
+        AnchorPane.setLeftAnchor(image, 10.0);
+        pane.getChildren().addAll(button, image);
+    }
+
+    public Inventory(String name, ImageView image, String pokemonCost){
         this.name = name;
-        this.image = image;
-        this.cost = cost;
+        this.pokemonCost.setText(pokemonCost);
+        
         
     }
     
 
     public void newRoll(String name) throws FileNotFoundException{
-        String image = getImage(name);
-        ImageView newImage = new ImageView(image);
-        int cost = getCost(name);  
-        AnchorPane pane = new AnchorPane();
-        
         
     }
 
