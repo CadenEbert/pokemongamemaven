@@ -15,7 +15,7 @@ public class Inventory extends Main {
 
     private static ImageView image;
     private String name;
-    private Text pokemonCost;
+    private Text pokemonCost = new Text("");
     public static AnchorPane pane = new AnchorPane();
     private Button button = new Button("Sell");
 

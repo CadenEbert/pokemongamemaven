@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -60,8 +59,7 @@ public class Controller extends Main {
     @FXML
     void openPokeBall(MouseEvent event) {
         if (coins >= 50) {
-            Inventory pokemonP = new Inventory("Bulbasaur", null, "3000");
-            this.inventory.getChildren().addAll(Inventory.pane);
+            this.inventory.getChildren().add(new Text("test"));
             
 
         }
