@@ -6,6 +6,7 @@ import java.util.Scanner;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
 import java.io.File;
 
@@ -14,7 +15,10 @@ public class Inventory extends Main {
 
     private static ImageView image;
     private String name;
-    private int cost;
+    private Text pokemonCost;
+    private AnchorPane pane;
+
+    pane.getChildren().addAll(pane);
     
     public static String[] pokemon = { "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard",
     "Squirtle", "Wartortle", "Blastoise", "Caterpie", "Metapod", "Butterfree", "Weedle", "Kakuna","Beedrill",
@@ -40,11 +44,11 @@ public class Inventory extends Main {
         
     }
 
-    public Inventory(String name, ImageView image, int cost, AnchorPane pane){
+    public Inventory(String name, ImageView image, int cost){
         this.name = name;
         this.image = image;
         this.cost = cost;
-        this.pane = pane;
+        
     }
     
 
@@ -53,8 +57,6 @@ public class Inventory extends Main {
         ImageView newImage = new ImageView(image);
         int cost = getCost(name);  
         AnchorPane pane = new AnchorPane();
-        Inventory panelInventory = new Inventory(name, newImage, cost, pane);
-        Controller.pokemonPanel.getChildren().add(panelInventory);
         
         
     }
