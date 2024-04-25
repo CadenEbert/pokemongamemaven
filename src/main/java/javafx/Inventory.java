@@ -13,7 +13,6 @@ import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.text.Text;
 
-import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 
 import java.io.File;
@@ -50,7 +49,7 @@ public class Inventory extends Main {
         pane.setPrefSize(110,140);
         Button button = new Button("Sell");
         String cost = getCost(name, list);
-        Text textCost = new Text(cost);
+        Text textCost = new Text("$" + cost);
         ImageView image = new ImageView(imageString);
         Text pokemonName = new Text(name);
 
@@ -76,7 +75,6 @@ public class Inventory extends Main {
     public static AnchorPane newPokeRoll(String name, int list) throws FileNotFoundException{
         String image = getImage(name);
         AnchorPane newPane = newPane(image, name, list);
-        
         return newPane;
     }
 
