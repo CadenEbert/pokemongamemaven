@@ -59,7 +59,9 @@ public class Controller extends Main {
     @FXML
     void openPokeBall(MouseEvent event) {
         if (coins >= 50) {
-            this.inventory.getChildren().add(new Text("test"));
+            AnchorPane pane = Inventory.newPane();
+
+            this.inventory.getChildren().add(pane);
             
 
         }

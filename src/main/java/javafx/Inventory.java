@@ -13,11 +13,10 @@ import java.io.File;
 
 public class Inventory extends Main {
 
-    private static ImageView image;
+    
     private String name;
     private Text pokemonCost = new Text("");
-    public static AnchorPane pane = new AnchorPane();
-    private Button button = new Button("Sell");
+    
 
     
     public static String[] pokemon = { "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard",
@@ -44,13 +43,17 @@ public class Inventory extends Main {
         
     }
 
-    @Override
-    public void init() {
+
+    public static AnchorPane newPane() {
+        AnchorPane pane = new AnchorPane();
+        Button button = new Button("Sell");
+        ImageView image = new ImageView();
         AnchorPane.setTopAnchor(button, 10.0);
         AnchorPane.setLeftAnchor(button, 20.0);
         AnchorPane.setTopAnchor(image, 10.0);
         AnchorPane.setLeftAnchor(image, 10.0);
         pane.getChildren().addAll(button, image);
+        return pane;
     }
 
     public Inventory(String name, ImageView image, String pokemonCost){

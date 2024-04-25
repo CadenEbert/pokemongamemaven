@@ -1,6 +1,6 @@
-javafx\Controller.class
 javafx\PokeBallRoll.class
-javafx\Inventory.class
 api\Api.class
 api\Transcript.class
+javafx\Controller.class
+javafx\Inventory.class
 javafx\Main.class
