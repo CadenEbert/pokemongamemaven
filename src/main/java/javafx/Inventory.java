@@ -6,9 +6,15 @@ import java.util.Scanner;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.text.Text;
 
 import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
 
 import java.io.File;
 
@@ -39,25 +45,29 @@ public class Inventory extends Main {
 
 
     public static AnchorPane newPane(String imageString, String name, int list) {
+
         AnchorPane pane = new AnchorPane();
-        pane.setPrefSize(100,150);
+        pane.setPrefSize(110,140);
         Button button = new Button("Sell");
         String cost = getCost(name, list);
         Text textCost = new Text(cost);
         ImageView image = new ImageView(imageString);
         Text pokemonName = new Text(name);
-        pane.setStyle("-fx-border-color: black");
+
+        pane.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         pokemonName.setStyle("-fx-alignment: center");
         pokemonName.setStyle("flex-direction: column");
-        pane.setStyle("-fx-background-color: #ffffff");
-        AnchorPane.setLeftAnchor(pokemonName, 25.0);
-        AnchorPane.setTopAnchor(pokemonName, 5.0);
+        pane.setStyle("-fx-background-color: #DCDCDC");
+
+        AnchorPane.setLeftAnchor(pokemonName, 30.0);
+        AnchorPane.setTopAnchor(pokemonName, 2.0);
         AnchorPane.setTopAnchor(button, 100.0);
         AnchorPane.setLeftAnchor(button, 60.0);
         AnchorPane.setTopAnchor(textCost, 105.0);
         AnchorPane.setLeftAnchor(textCost, 20.0);
         AnchorPane.setTopAnchor(image, 10.0);
-        AnchorPane.setLeftAnchor(image, 0.0);
+        AnchorPane.setLeftAnchor(image, 5.0);
+
         pane.getChildren().addAll(button, image, textCost, pokemonName);
         return pane;
     }
