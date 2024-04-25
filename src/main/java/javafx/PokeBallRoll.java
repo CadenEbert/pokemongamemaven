@@ -6,8 +6,6 @@ public class PokeBallRoll  {
 
 
     
-    public String[] greatball = { "Ivysaur", "Charmeleon", "Wartortle", "Metapod", "Kakuna", "Pidgeotto","Raticate","Spearow", "Arbok", "Raichu", "Sandslash", "Nidorina", "Nidorino", "Clefable","Ninetales", "Wigglytuff", "Golbat", "Gloom", "Parasect", "Venomoth", "Dugtrio","Persian", "Golduck", "Primeape", "Raichu", "Sandslash", "Nidorina", "Nidorino","Clefable","Ninetales", "Wigglytuff", "Golbat", "Gloom", "Parasect", "Venomoth", "Dugtrio","Persian", "Golduck", "Primeape", "Arcanine", "Poliwhirl", "Kadabra", "Machoke","Weepinbell", "Tentacruel", "Graveler", "Rapidash", "Slowbro", "Magneton", "Dodrio","Dewgong", "Muk", "Cloyster", "Haunter", "Hypno", "Kingler", "Electrode", "Exeggutor","Marowak", "Hitmonchan", "Lickitung", "Weezing", "Rhydon", "Chansey", "Seadra","Seaking", "Starmie", "Mr. Mime", "Scyther", "Jynx", "Electabuzz", "Pinsir", "Ditto","Vaporeon", "Jolteon", "Flareon", "Porygon", "Omastar", "Kabutops", "Dragonair" };
-    public String[] ultraball = { "Venusaur", "Charizard", "Blastoise", "Butterfree", "Pidgeotto", "Sandshrew", "Nidoqueen", "Nidoking", "Spearow", "Fearow", "Arbok", "Vileplume", "Poliwrath","Alakazam", "Machamp", "Victreebel", "Golem", "Farfetch'd", "Kangaskhan", "Gengar","Onix", "Magmar", "Gyarados", "Lapras", "Aerodactyl", "Snorlax", "Articuno", "Zapdos","Moltres", "Dragonite", "Mewtwo", "Mew" };
     
     public static void main(String[] args){
 
@@ -22,14 +20,18 @@ public class PokeBallRoll  {
         return pokeball[roll];
     }
 
-    public static String greatballOpen(String[] pokemon) {
-        int roll = (int) (Math.random() * pokemon.length);
-        return pokemon[roll];
+    public static String greatballOpen() {
+        String[] gretballPokemon = { "Ivysaur", "Charmeleon", "Wartortle", "Metapod", "Kakuna", "Pidgeotto","Raticate","Spearow", "Arbok", "Raichu", "Sandslash", "Nidorina", "Nidorino", "Clefable","Ninetales", "Wigglytuff", "Golbat", "Gloom", "Parasect", "Venomoth", "Dugtrio","Persian", "Golduck", "Primeape", "Raichu", "Sandslash", "Nidorina", "Nidorino","Clefable","Ninetales", "Wigglytuff", "Golbat", "Gloom", "Parasect", "Venomoth", "Dugtrio","Persian", "Golduck", "Primeape", "Arcanine", "Poliwhirl", "Kadabra", "Machoke","Weepinbell", "Tentacruel", "Graveler", "Rapidash", "Slowbro", "Magneton", "Dodrio","Dewgong", "Muk", "Cloyster", "Haunter", "Hypno", "Kingler", "Electrode", "Exeggutor","Marowak", "Hitmonchan", "Lickitung", "Weezing", "Rhydon", "Chansey", "Seadra","Seaking", "Starmie", "Mr. Mime", "Scyther", "Jynx", "Electabuzz", "Pinsir", "Ditto","Vaporeon", "Jolteon", "Flareon", "Porygon", "Omastar", "Kabutops", "Dragonair" };
+
+        int roll = (int) (Math.random() * gretballPokemon.length);
+        return gretballPokemon[roll];
     }
 
-    public static String ultraballOpen(String[] pokemon) {
-        int roll = (int) (Math.random() * pokemon.length);
-        return pokemon[roll];
+    public static String ultraballOpen() {
+        String[] ultraballPokemon = { "Venusaur", "Charizard", "Blastoise", "Butterfree", "Pidgeotto", "Sandshrew", "Nidoqueen", "Nidoking", "Spearow", "Fearow", "Arbok", "Vileplume", "Poliwrath","Alakazam", "Machamp", "Victreebel", "Golem", "Farfetch'd", "Kangaskhan", "Gengar","Onix", "Magmar", "Gyarados", "Lapras", "Aerodactyl", "Snorlax", "Articuno", "Zapdos","Moltres", "Dragonite", "Mewtwo", "Mew" };
+
+        int roll = (int) (Math.random() * ultraballPokemon.length);
+        return ultraballPokemon[roll];
     }
 
 

@@ -53,25 +53,41 @@ public class Controller extends Main {
 
 
     @FXML
-    void openGreatBall(MouseEvent event) {
-
-    }
-
-    @FXML
-    void openPokeBall(MouseEvent event) throws FileNotFoundException {
-        if (coins >= 50) {
-            AnchorPane pane = Inventory.newPokeRoll();
+    void openGreatBall(MouseEvent event) throws FileNotFoundException {
+        int list = 2;
+        if (coins >= 250) {
+            String name = PokeBallRoll.greatballOpen();
+            AnchorPane pane = Inventory.newPokeRoll(name, list);
 
             this.inventory.getChildren().add(pane);
             coins -= 50;
-            
-
         }
 
     }
 
     @FXML
-    void openUltraBall(MouseEvent event) {
+    void openPokeBall(MouseEvent event) throws FileNotFoundException {
+        int list = 1;
+        if (coins >= 50) {
+            String name = PokeBallRoll.pokeballOpen();
+            AnchorPane pane = Inventory.newPokeRoll(name, list);
+
+            this.inventory.getChildren().add(pane);
+            coins -= 50;
+        }
+
+    }
+
+    @FXML
+    void openUltraBall(MouseEvent event) throws FileNotFoundException {
+        int list = 3;
+        if (coins >= 500) {
+            String name = PokeBallRoll.ultraballOpen();
+            AnchorPane pane = Inventory.newPokeRoll(name, list);
+
+            this.inventory.getChildren().add(pane);
+            coins -= 50;
+        }
 
     }
 

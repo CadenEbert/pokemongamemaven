@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
-        public int coins = 100;
+        public int coins = 10000;
 
         
 

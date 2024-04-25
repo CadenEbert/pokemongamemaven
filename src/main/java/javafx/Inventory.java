@@ -11,10 +11,8 @@ import javafx.scene.text.Text;
 import java.io.File;
 
 
-public class Inventory extends Main {
 
-    
-    private String name;
+public class Inventory extends Main {
     
 
     
@@ -36,6 +34,8 @@ public class Inventory extends Main {
     "Porygon","Omanyte", "Omastar", "Kabuto", "Kabutops", "Aerodactyl", "Snorlax", "Articuno", "Zapdos",
     "Moltres","Dratini", "Dragonair", "Dragonite", "Mewtwo", "Mew" };
 
+
+    
     public static void main(String[] args) {
         
 
@@ -43,30 +43,31 @@ public class Inventory extends Main {
     }
 
 
-    public static AnchorPane newPane(String imageString, String name) {
+    public static AnchorPane newPane(String imageString, String name, int list) {
         AnchorPane pane = new AnchorPane();
         Button button = new Button("Sell");
-        Text textName = new Text(name);
+        String cost = getCost(name, list);
+        Text textCost = new Text(cost);
         ImageView image = new ImageView(imageString);
         pane.setStyle("-fx-background-color: #ffffff");
         AnchorPane.setTopAnchor(button, 100.0);
         AnchorPane.setLeftAnchor(button, 60.0);
-        AnchorPane.setTopAnchor(textName, 100.0);
-        AnchorPane.setLeftAnchor(textName, 5.0);
+        AnchorPane.setTopAnchor(textCost, 105.0);
+        AnchorPane.setLeftAnchor(textCost, 20.0);
         AnchorPane.setTopAnchor(image, 0.0);
         AnchorPane.setLeftAnchor(image, 10.0);
-        pane.getChildren().addAll(button, image, textName);
+        pane.getChildren().addAll(button, image, textCost);
         return pane;
     }
     
 
-    public static AnchorPane newPokeRoll() throws FileNotFoundException{
-        String name = PokeBallRoll.pokeballOpen();
+    public static AnchorPane newPokeRoll(String name, int list) throws FileNotFoundException{
         String image = getImage(name);
-        AnchorPane newPane = newPane(image, name);
+        AnchorPane newPane = newPane(image, name, list);
         
         return newPane;
     }
+
 
 
     public static String getImage(String name) throws FileNotFoundException {
@@ -100,8 +101,26 @@ public class Inventory extends Main {
         
     }
 
-    public int getCost(String name) {
-        return 0;
+    public static String getCost(String name, int list) {
+        int roll = 0;
+        String cost = "";
+
+        switch(list) {
+            case 1:
+            roll += (int)(Math.random() * 100) + 1;
+            cost = String.valueOf(roll);
+            break;
+            case 2:
+            roll += (int)(Math.random() * 100) + 200;
+            cost = String.valueOf(roll);
+            break;
+            case 3:
+            roll += (int)(Math.random() * 200) + 300;
+            cost = String.valueOf(roll);
+            break;
+        }
+
+        return cost;
     }
     
 }
