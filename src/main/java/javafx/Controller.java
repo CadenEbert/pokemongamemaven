@@ -2,6 +2,7 @@ package javafx;
 
 
 
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -57,11 +58,12 @@ public class Controller extends Main {
     }
 
     @FXML
-    void openPokeBall(MouseEvent event) {
+    void openPokeBall(MouseEvent event) throws FileNotFoundException {
         if (coins >= 50) {
-            AnchorPane pane = Inventory.newPane();
+            AnchorPane pane = Inventory.newPokeRoll();
 
             this.inventory.getChildren().add(pane);
+            coins -= 50;
             
 
         }

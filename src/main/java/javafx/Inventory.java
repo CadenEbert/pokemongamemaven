@@ -15,7 +15,6 @@ public class Inventory extends Main {
 
     
     private String name;
-    private Text pokemonCost = new Text("");
     
 
     
@@ -44,28 +43,29 @@ public class Inventory extends Main {
     }
 
 
-    public static AnchorPane newPane() {
+    public static AnchorPane newPane(String imageString, String name) {
         AnchorPane pane = new AnchorPane();
         Button button = new Button("Sell");
-        ImageView image = new ImageView();
-        AnchorPane.setTopAnchor(button, 10.0);
-        AnchorPane.setLeftAnchor(button, 20.0);
-        AnchorPane.setTopAnchor(image, 10.0);
+        Text textName = new Text(name);
+        ImageView image = new ImageView(imageString);
+        pane.setStyle("-fx-background-color: #ffffff");
+        AnchorPane.setTopAnchor(button, 100.0);
+        AnchorPane.setLeftAnchor(button, 60.0);
+        AnchorPane.setTopAnchor(textName, 100.0);
+        AnchorPane.setLeftAnchor(textName, 5.0);
+        AnchorPane.setTopAnchor(image, 0.0);
         AnchorPane.setLeftAnchor(image, 10.0);
-        pane.getChildren().addAll(button, image);
+        pane.getChildren().addAll(button, image, textName);
         return pane;
-    }
-
-    public Inventory(String name, ImageView image, String pokemonCost){
-        this.name = name;
-        this.pokemonCost.setText(pokemonCost);
-        
-        
     }
     
 
-    public void newRoll(String name) throws FileNotFoundException{
+    public static AnchorPane newPokeRoll() throws FileNotFoundException{
+        String name = PokeBallRoll.pokeballOpen();
+        String image = getImage(name);
+        AnchorPane newPane = newPane(image, name);
         
+        return newPane;
     }
 
 
@@ -79,6 +79,8 @@ public class Inventory extends Main {
                 index = String.valueOf(i);
             }
         }
+        System.out.println(index);
+        System.out.println(name);
 
         while (sc.hasNext()){
             String line = sc.nextLine();
@@ -89,6 +91,7 @@ public class Inventory extends Main {
             }
 
         }
+        System.out.println(image);
         sc.close();
         return image;
         
