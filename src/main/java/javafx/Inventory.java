@@ -8,6 +8,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
+import javafx.scene.layout.Region;
+
 import java.io.File;
 
 
@@ -35,28 +37,28 @@ public class Inventory extends Main {
     "Moltres","Dratini", "Dragonair", "Dragonite", "Mewtwo", "Mew" };
 
 
-    
-    public static void main(String[] args) {
-        
-
-        
-    }
-
 
     public static AnchorPane newPane(String imageString, String name, int list) {
         AnchorPane pane = new AnchorPane();
+        pane.setPrefSize(100,150);
         Button button = new Button("Sell");
         String cost = getCost(name, list);
         Text textCost = new Text(cost);
         ImageView image = new ImageView(imageString);
+        Text pokemonName = new Text(name);
+        pane.setStyle("-fx-border-color: black");
+        pokemonName.setStyle("-fx-alignment: center");
+        pokemonName.setStyle("flex-direction: column");
         pane.setStyle("-fx-background-color: #ffffff");
+        AnchorPane.setLeftAnchor(pokemonName, 25.0);
+        AnchorPane.setTopAnchor(pokemonName, 5.0);
         AnchorPane.setTopAnchor(button, 100.0);
         AnchorPane.setLeftAnchor(button, 60.0);
         AnchorPane.setTopAnchor(textCost, 105.0);
         AnchorPane.setLeftAnchor(textCost, 20.0);
-        AnchorPane.setTopAnchor(image, 0.0);
-        AnchorPane.setLeftAnchor(image, 10.0);
-        pane.getChildren().addAll(button, image, textCost);
+        AnchorPane.setTopAnchor(image, 10.0);
+        AnchorPane.setLeftAnchor(image, 0.0);
+        pane.getChildren().addAll(button, image, textCost, pokemonName);
         return pane;
     }
     
@@ -78,9 +80,6 @@ public class Inventory extends Main {
         for (int i = 0; i < pokemon.length; i++) {
             if (name == pokemon[i]) {
                 index = String.valueOf(i + 1);
-                System.out.println(name);
-                System.out.println(pokemon[i]);
-                System.out.println(index);
                 break;      
             }
         }
@@ -95,7 +94,6 @@ public class Inventory extends Main {
             }
 
         }
-        System.out.println(image);
         sc.close();
         return image;
         

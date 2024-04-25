@@ -119,7 +119,7 @@
             </ImageView>
          </center>
          <bottom>
-            <Text fx:id="coinsText" strokeType="OUTSIDE" strokeWidth="0.0" text="Coins: 0" textAlignment="CENTER" BorderPane.alignment="CENTER">
+            <Text fx:id="coinsText" strokeType="OUTSIDE" strokeWidth="0.0" text="Coins: " textAlignment="CENTER" BorderPane.alignment="CENTER">
                <font>
                   <Font name="Power Green" size="36.0" />
                </font>

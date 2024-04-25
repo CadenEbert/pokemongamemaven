@@ -3,8 +3,7 @@ package javafx;
 
 
 import java.io.FileNotFoundException;
-import java.net.URL;
-import java.util.ResourceBundle;
+
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -26,7 +25,7 @@ public class Controller extends Main {
     private ImageView pokemonImage;
 
     @FXML
-    private Text coinsText;
+    public Text coinsText = new Text("Coins" + coins);
 
     @FXML
     private Button pokeballButton;
@@ -46,13 +45,6 @@ public class Controller extends Main {
 
 
     @FXML
-    public void initialize(URL url, ResourceBundle rb) {
-        
-
-    }
-
-
-    @FXML
     void openGreatBall(MouseEvent event) throws FileNotFoundException {
         int list = 2;
         if (coins >= 250) {
@@ -61,6 +53,7 @@ public class Controller extends Main {
 
             this.inventory.getChildren().add(pane);
             coins -= 50;
+            coinsText.setText("Coins: " + coins);
         }
 
     }
@@ -74,6 +67,7 @@ public class Controller extends Main {
 
             this.inventory.getChildren().add(pane);
             coins -= 50;
+            coinsText.setText("Coins: " + coins);
         }
 
     }
@@ -87,6 +81,7 @@ public class Controller extends Main {
 
             this.inventory.getChildren().add(pane);
             coins -= 50;
+            coinsText.setText("Coins: " + coins);
         }
 
     }
