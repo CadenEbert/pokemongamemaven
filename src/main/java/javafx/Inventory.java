@@ -115,7 +115,7 @@ public class Inventory extends Main {
             cost = String.valueOf(roll);
             break;
             case 3:
-            roll += (int)(Math.random() * 200) + 300;
+            roll += (int)(Math.random() * 500) + 300;
             cost = String.valueOf(roll);
             break;
         }
