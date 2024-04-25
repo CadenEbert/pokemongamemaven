@@ -74,13 +74,16 @@ public class Inventory extends Main {
         String image = "";
         Scanner sc = new Scanner(new File("pokemon.txt"));
         
-        for (int i = 1; i < pokemon.length; i++) {
+        for (int i = 0; i < pokemon.length; i++) {
             if (name == pokemon[i]) {
-                index = String.valueOf(i);
+                index = String.valueOf(i + 1);
+                System.out.println(name);
+                System.out.println(pokemon[i]);
+                System.out.println(index);
+                break;      
             }
         }
-        System.out.println(index);
-        System.out.println(name);
+        
 
         while (sc.hasNext()){
             String line = sc.nextLine();
