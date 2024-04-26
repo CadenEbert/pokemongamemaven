@@ -12,7 +12,7 @@ import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.text.Text;
-
+import javafx.scene.text.TextAlignment;
 import javafx.scene.paint.Color;
 
 import java.io.File;
@@ -46,7 +46,7 @@ public class Inventory extends Main {
     public static AnchorPane newPane(String imageString, String name, int list) {
 
         AnchorPane pane = new AnchorPane();
-        pane.setPrefSize(110,140);
+        pane.setPrefSize(120,140);
         Button button = new Button("Sell");
         String cost = getCost(name, list);
         Text textCost = new Text("$" + cost);
@@ -57,6 +57,7 @@ public class Inventory extends Main {
         pokemonName.setStyle("-fx-alignment: center");
         pokemonName.setStyle("flex-direction: column");
         pane.setStyle("-fx-background-color: #DCDCDC");
+        pokemonName.setTextAlignment(TextAlignment.CENTER);
 
         AnchorPane.setLeftAnchor(pokemonName, 30.0);
         AnchorPane.setTopAnchor(pokemonName, 2.0);
