@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class Controller extends Main {
@@ -50,7 +51,7 @@ public class Controller extends Main {
         int list = 2;
         if (coins >= 250) {
             String name = PokeBallRoll.greatballOpen();
-            AnchorPane pane = Inventory.newPokeRoll(name, list);
+            VBox pane = Inventory.newPokeRoll(name, list);
 
             this.inventory.getChildren().add(pane);
             coins -= 50;
@@ -64,7 +65,7 @@ public class Controller extends Main {
         int list = 1;
         if (coins >= 50) {
             String name = PokeBallRoll.pokeballOpen();
-            AnchorPane pane = Inventory.newPokeRoll(name, list);
+            VBox pane = Inventory.newPokeRoll(name, list);
 
             this.inventory.getChildren().add(pane);
             coins -= 50;
@@ -78,7 +79,7 @@ public class Controller extends Main {
         int list = 3;
         if (coins >= 500) {
             String name = PokeBallRoll.ultraballOpen();
-            AnchorPane pane = Inventory.newPokeRoll(name, list);
+            VBox pane = Inventory.newPokeRoll(name, list);
 
             this.inventory.getChildren().add(pane);
             coins -= 50;

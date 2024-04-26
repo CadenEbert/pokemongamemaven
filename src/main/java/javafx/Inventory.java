@@ -3,14 +3,17 @@ package javafx;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.paint.Color;
@@ -43,39 +46,43 @@ public class Inventory extends Main {
 
 
 
-    public static AnchorPane newPane(String imageString, String name, int list) {
+    public static VBox newPane(String imageString, String name, int list) {
 
-        AnchorPane pane = new AnchorPane();
-        pane.setPrefSize(120,140);
+        VBox pane = new VBox();
+        pane.setPrefSize(130,130);
         Button button = new Button("Sell");
         String cost = getCost(name, list);
         Text textCost = new Text("$" + cost);
         ImageView image = new ImageView(imageString);
         Text pokemonName = new Text(name);
 
+        HBox hbox = new HBox();
+        hbox.getChildren().addAll(textCost, button);
+
+
         pane.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         pokemonName.setStyle("-fx-alignment: center");
         pokemonName.setStyle("flex-direction: column");
         pane.setStyle("-fx-background-color: #DCDCDC");
         pokemonName.setTextAlignment(TextAlignment.CENTER);
+        
 
-        AnchorPane.setLeftAnchor(pokemonName, 30.0);
-        AnchorPane.setTopAnchor(pokemonName, 2.0);
-        AnchorPane.setTopAnchor(button, 100.0);
-        AnchorPane.setLeftAnchor(button, 60.0);
-        AnchorPane.setTopAnchor(textCost, 105.0);
-        AnchorPane.setLeftAnchor(textCost, 20.0);
-        AnchorPane.setTopAnchor(image, 10.0);
-        AnchorPane.setLeftAnchor(image, 5.0);
+        pokemonName.setLayoutY(0.0);
 
-        pane.getChildren().addAll(button, image, textCost, pokemonName);
+        hbox.setAlignment(Pos.CENTER);
+
+        pane.setAlignment(Pos.CENTER);
+        pane.setPadding(new Insets(10,10,10,10));
+        hbox.setSpacing(15.0);
+
+        pane.getChildren().addAll(pokemonName, image, hbox);
         return pane;
     }
     
 
-    public static AnchorPane newPokeRoll(String name, int list) throws FileNotFoundException{
+    public static VBox newPokeRoll(String name, int list) throws FileNotFoundException{
         String image = getImage(name);
-        AnchorPane newPane = newPane(image, name, list);
+        VBox newPane = newPane(image, name, list);
         return newPane;
     }
 
