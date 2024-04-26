@@ -17,7 +17,7 @@ import javafx.scene.text.Text;
 public class Controller extends Main {
 
     @FXML
-    private FlowPane inventory;
+    public FlowPane inventory;
 
     @FXML
     private Text coinsPokeText;
@@ -91,6 +91,10 @@ public class Controller extends Main {
     @FXML
     void sell(MouseEvent event) {
 
+    }
+
+    void setCoins(){
+        coinsText.setText("Coins: " + coins);
     }
 
 }

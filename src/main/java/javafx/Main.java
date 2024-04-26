@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
-        public int coins = 10000;
+        public static int coins = 10000;
 
         
 
@@ -24,6 +24,9 @@ public class Main extends Application {
 
                 primaryStage.setTitle("Game");
                 primaryStage.setScene(new Scene(root));
+
+                
+
                 primaryStage.show();
         }
 

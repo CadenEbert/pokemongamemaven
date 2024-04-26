@@ -3,6 +3,8 @@ package javafx;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -12,6 +14,7 @@ import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -65,15 +68,26 @@ public class Inventory extends Main {
         pokemonName.setStyle("flex-direction: column");
         pane.setStyle("-fx-background-color: #DCDCDC");
         pokemonName.setTextAlignment(TextAlignment.CENTER);
-        
-
         pokemonName.setLayoutY(0.0);
 
         hbox.setAlignment(Pos.CENTER);
-
         pane.setAlignment(Pos.CENTER);
         pane.setPadding(new Insets(10,10,10,10));
         hbox.setSpacing(15.0);
+
+        EventHandler<ActionEvent> sell = new EventHandler<ActionEvent>() { 
+            public void handle(ActionEvent e) 
+            { 
+                Main.coins += Integer.parseInt(cost);
+                ((FlowPane) pane.getParent()).getChildren().remove(pane);
+                
+                
+                
+                
+            } 
+        }; 
+
+        button.setOnAction(sell);
 
         pane.getChildren().addAll(pokemonName, image, hbox);
         return pane;
@@ -136,5 +150,7 @@ public class Inventory extends Main {
 
         return cost;
     }
+
+    
     
 }

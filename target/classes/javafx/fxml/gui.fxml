@@ -48,12 +48,12 @@
                         <Insets bottom="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <ImageView fitHeight="139.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                  <ImageView fitHeight="143.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets top="10.0" />
                      </GridPane.margin>
                      <image>
-                        <Image url="@../images/6-93-removebg-preview.png" />
+                        <Image url="@../images/pokeballBg.png" />
                      </image>
                   </ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="50 Coins" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
@@ -77,7 +77,7 @@
                         <Insets bottom="40.0" />
                      </GridPane.margin>
                   </Text>
-                  <ImageView fitHeight="108.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                  <ImageView fitHeight="104.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                      <image>
                         <Image url="@../images/greatball.png" />
                      </image>
