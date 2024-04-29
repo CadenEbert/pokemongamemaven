@@ -49,12 +49,19 @@ public class Controller extends Main {
     @FXML
     void openGreatBall(MouseEvent event) throws FileNotFoundException {
         int list = 2;
+        boolean shiny = false;
+        int shinyRoll = (int) (Math.random() * 10);
+
+        if (shinyRoll == 1) {
+            shiny = true;
+        }
+
         if (coins >= 250) {
             String name = PokeBallRoll.greatballOpen();
-            VBox pane = Inventory.newPokeRoll(name, list);
+            VBox pane = Inventory.newPokeRoll(name, list, shiny);
 
             this.inventory.getChildren().add(pane);
-            coins -= 50;
+            coins -= 250;
             coinsText.setText("Coins: " + coins);
         }
 
@@ -63,9 +70,16 @@ public class Controller extends Main {
     @FXML
     void openPokeBall(MouseEvent event) throws FileNotFoundException {
         int list = 1;
+        boolean shiny = false;
+        int shinyRoll = (int) (Math.random() * 10);
+
+        if (shinyRoll == 1) {
+            shiny = true;
+        }
+
         if (coins >= 50) {
             String name = PokeBallRoll.pokeballOpen();
-            VBox pane = Inventory.newPokeRoll(name, list);
+            VBox pane = Inventory.newPokeRoll(name, list, shiny);
 
             this.inventory.getChildren().add(pane);
             coins -= 50;
@@ -77,12 +91,19 @@ public class Controller extends Main {
     @FXML
     void openUltraBall(MouseEvent event) throws FileNotFoundException {
         int list = 3;
+        boolean shiny = false;
+        int shinyRoll = (int) (Math.random() * 10);
+
+        if (shinyRoll == 1) {
+            shiny = true;
+        }
+
         if (coins >= 500) {
             String name = PokeBallRoll.ultraballOpen();
-            VBox pane = Inventory.newPokeRoll(name, list);
+            VBox pane = Inventory.newPokeRoll(name, list, shiny);
 
             this.inventory.getChildren().add(pane);
-            coins -= 50;
+            coins -= 500;
             coinsText.setText("Coins: " + coins);
         }
 
@@ -93,6 +114,7 @@ public class Controller extends Main {
 
     }
 
+    @FXML
     void setCoins(){
         coinsText.setText("Coins: " + coins);
     }

@@ -30,7 +30,7 @@ public class Api {
             "Dratini", "Dragonair", "Dragonite", "Mewtwo", "Mew" };
 
     public static void main(String[] args) throws IOException {
-        FileWriter writer = new FileWriter("Output");
+        FileWriter writer = new FileWriter("pokemonShinys");
 
         OkHttpClient client = new OkHttpClient();
 
@@ -59,7 +59,7 @@ public class Api {
         JsonElement jelement = new JsonParser().parse(jsonLine);
         JsonObject  jobject = jelement.getAsJsonObject();
         jobject = jobject.getAsJsonObject("sprites");
-        String result = jobject.get("front_default").getAsString();
+        String result = jobject.get("front_shiny").getAsString();
         return result;
 }
 }

@@ -20,14 +20,26 @@
    <children>
       <HBox layoutY="294.0" prefHeight="212.0" prefWidth="608.0">
          <children>
-            <ScrollPane prefHeight="212.0" prefWidth="1138.0">
+            <ScrollPane prefHeight="212.0" prefWidth="534.0" style="-fx-background-color: transparent;" stylesheets="@scrollpane.css">
                <content>
-                  <FlowPane fx:id="inventory" hgap="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="211.0" prefWidth="608.0" style="-fx-background-color: #AFAFAF; -fx-border-width: 2px; -fx-border-color: #000000;" vgap="5.0">
+                  <FlowPane fx:id="inventory" hgap="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="211.0" prefWidth="504.0" style="-fx-background-color: #AFAFAF; -fx-border-width: 2px; -fx-border-color: #000000;" vgap="5.0">
                      <padding>
                         <Insets left="5.0" right="5.0" top="5.0" />
                      </padding></FlowPane>
                </content>
             </ScrollPane>
+            <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="104.0" style="-fx-background-color: #AFAFAF; -fx-border-width: 2px; -fx-border-color: #000000;" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Sell All">
+                     <opaqueInsets>
+                        <Insets top="10.0" />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
          </children>
       </HBox>
       <VBox layoutX="609.0" prefHeight="503.0" prefWidth="247.0">
