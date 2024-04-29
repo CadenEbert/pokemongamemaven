@@ -23,12 +23,7 @@ import javafx.scene.paint.Color;
 
 import java.io.File;
 
-
-
 public class Inventory extends Main {
-    
-
-    
     public static String[] pokemon = { "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard",
     "Squirtle", "Wartortle", "Blastoise", "Caterpie", "Metapod", "Butterfree", "Weedle", "Kakuna","Beedrill",
     "Pidgey", "Pidgeotto", "Pidgeot", "Rattata", "Raticate", "Spearow", "Fearow", "Ekans", "Arbok","Pikachu",
@@ -50,7 +45,6 @@ public class Inventory extends Main {
 
 
     public static VBox newPane(String imageString, String name, int list) {
-
         VBox pane = new VBox();
         pane.setPrefSize(130,130);
         Button button = new Button("Sell");
@@ -80,15 +74,9 @@ public class Inventory extends Main {
             { 
                 Main.coins += Integer.parseInt(cost);
                 ((FlowPane) pane.getParent()).getChildren().remove(pane);
-                
-                
-                
-                
             } 
         }; 
-
         button.setOnAction(sell);
-
         pane.getChildren().addAll(pokemonName, image, hbox);
         return pane;
     }
@@ -113,20 +101,15 @@ public class Inventory extends Main {
                 break;      
             }
         }
-        
-
         while (sc.hasNext()){
             String line = sc.nextLine();
             if (line.contains(index)) {
                 image = line;
                 break;
-
             }
-
         }
         sc.close();
         return image;
-        
     }
 
     public static String getCost(String name, int list) {
@@ -147,7 +130,6 @@ public class Inventory extends Main {
             cost = String.valueOf(roll);
             break;
         }
-
         return cost;
     }
 

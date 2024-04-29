@@ -12,32 +12,16 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
         public static int coins = 10000;
 
-        
-
-
-
         public void start(Stage primaryStage) throws IOException {
-
-
                 java.net.URL url = Paths.get("./src/main/java/javafx/fxml/gui.fxml").toUri().toURL();
                 Parent root = FXMLLoader.load(url);
-
                 primaryStage.setTitle("Game");
                 primaryStage.setScene(new Scene(root));
-
-                
-
                 primaryStage.show();
         }
 
 
         public static void main(String[] args)  {
-
-
                 launch(args);
-                
-
-
         }
-
 }
