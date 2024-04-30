@@ -30,7 +30,7 @@
             </ScrollPane>
             <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="104.0" style="-fx-background-color: #AFAFAF; -fx-border-width: 2px; -fx-border-color: #000000;" HBox.hgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Sell All">
+                  <Button mnemonicParsing="false" onMouseClicked="#sellAll" prefHeight="26.0" prefWidth="54.0" text="Sell All">
                      <opaqueInsets>
                         <Insets top="10.0" />
                      </opaqueInsets>

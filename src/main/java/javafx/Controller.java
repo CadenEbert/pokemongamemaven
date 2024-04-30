@@ -4,8 +4,8 @@ package javafx;
 
 import java.io.FileNotFoundException;
 
-
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -37,6 +37,7 @@ public class Controller extends Main {
 
     @FXML
     private Button sellButton;
+
 
     @FXML
     void countMoney(MouseEvent event) {
@@ -117,6 +118,13 @@ public class Controller extends Main {
     @FXML
     void setCoins(){
         coinsText.setText("Coins: " + coins);
+    }
+
+
+    
+    @FXML
+    void sellAll(MouseEvent event) {
+        inventory.getChildren().clear();
     }
 
 }
