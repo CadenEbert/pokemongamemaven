@@ -5,12 +5,12 @@ package javafx;
 import java.io.FileNotFoundException;
 
 import javafx.fxml.FXML;
-import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
@@ -27,7 +27,7 @@ public class Controller extends Main {
 
 
     @FXML
-    public Text coinsText = new Text("Coins" + coins);
+    public static Text coinsText = new Text("");
 
     @FXML
     private Button pokeballButton;
@@ -38,11 +38,15 @@ public class Controller extends Main {
     @FXML
     private Button sellButton;
 
+    @FXML
+    private HBox textBox;
+
+
 
     @FXML
     void countMoney(MouseEvent event) {
-        coinsText.setText("Coins: " + coins);
-        coins += 1;
+        Main.coins.add(1);
+        
 
     }
 
@@ -57,12 +61,12 @@ public class Controller extends Main {
             shiny = true;
         }
 
-        if (coins >= 250) {
+        if (Main.coins.get() >= 250) {
             String name = PokeBallRoll.greatballOpen();
             VBox pane = Inventory.newPokeRoll(name, list, shiny);
 
             this.inventory.getChildren().add(pane);
-            coins -= 250;
+            coins.add(-250);
             coinsText.setText("Coins: " + coins);
         }
 
@@ -78,13 +82,13 @@ public class Controller extends Main {
             shiny = true;
         }
 
-        if (coins >= 50) {
+        if (coins.get() >= 50) {
             String name = PokeBallRoll.pokeballOpen();
             VBox pane = Inventory.newPokeRoll(name, list, shiny);
 
             this.inventory.getChildren().add(pane);
-            coins -= 50;
-            coinsText.setText("Coins: " + coins);
+            coins.add(-50);
+            
         }
 
     }
@@ -99,13 +103,13 @@ public class Controller extends Main {
             shiny = true;
         }
 
-        if (coins >= 500) {
+        if (coins.get() >= 500) {
             String name = PokeBallRoll.ultraballOpen();
             VBox pane = Inventory.newPokeRoll(name, list, shiny);
 
             this.inventory.getChildren().add(pane);
-            coins -= 500;
-            coinsText.setText("Coins: " + coins);
+            coins.add(-500);
+            
         }
 
     }
@@ -114,17 +118,15 @@ public class Controller extends Main {
     void sell(MouseEvent event) {
 
     }
-
-    @FXML
-    void setCoins(){
-        coinsText.setText("Coins: " + coins);
-    }
-
-
     
     @FXML
     void sellAll(MouseEvent event) {
         inventory.getChildren().clear();
+        for (int i = 0; i < Inventory.totalCost.size(); i++) {
+            coins.add(Inventory.totalCost.get(i));
+            
+        }
+        Inventory.totalCost.clear();
     }
 
 }

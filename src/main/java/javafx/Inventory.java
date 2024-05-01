@@ -20,6 +20,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.paint.Color;
+import java.util.ArrayList;
 
 import java.io.File;
 
@@ -41,6 +42,7 @@ public class Inventory extends Main {
     "Tauros", "Magikarp", "Gyarados", "Lapras", "Ditto", "Eevee", "Vaporeon", "Jolteon", "Flareon",
     "Porygon","Omanyte", "Omastar", "Kabuto", "Kabutops", "Aerodactyl", "Snorlax", "Articuno", "Zapdos",
     "Moltres","Dratini", "Dragonair", "Dragonite", "Mewtwo", "Mew" };
+    public static ArrayList<Integer> totalCost = new ArrayList<Integer>();
 
 
 
@@ -52,6 +54,8 @@ public class Inventory extends Main {
         Text textCost = new Text("$" + cost);
         ImageView image = new ImageView(imageString);
         Text pokemonName = new Text(name);
+
+        totalCost.add(Integer.parseInt(cost));
 
         HBox hbox = new HBox();
         hbox.getChildren().addAll(textCost, button);
@@ -72,8 +76,15 @@ public class Inventory extends Main {
         EventHandler<ActionEvent> sell = new EventHandler<ActionEvent>() { 
             public void handle(ActionEvent e) 
             { 
-                Main.coins += Integer.parseInt(cost);
+                coins.add(Integer.parseInt(cost));
                 ((FlowPane) pane.getParent()).getChildren().remove(pane);
+                for (int i = 0; i < totalCost.size(); i++) {
+                    if (totalCost.get(i) == Integer.parseInt(cost)){
+                        totalCost.remove(i);
+                    }
+                }
+                
+                
             } 
         }; 
         button.setOnAction(sell);

@@ -28,7 +28,7 @@
                      </padding></FlowPane>
                </content>
             </ScrollPane>
-            <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="104.0" style="-fx-background-color: #AFAFAF; -fx-border-width: 2px; -fx-border-color: #000000;" HBox.hgrow="ALWAYS">
+            <VBox alignment="TOP_CENTER" prefHeight="177.0" prefWidth="82.0" style="-fx-background-color: #AFAFAF; -fx-border-width: 2px; -fx-border-color: #000000;" HBox.hgrow="ALWAYS">
                <children>
                   <Button mnemonicParsing="false" onMouseClicked="#sellAll" prefHeight="26.0" prefWidth="54.0" text="Sell All">
                      <opaqueInsets>
@@ -131,14 +131,20 @@
             </ImageView>
          </center>
          <bottom>
-            <Text fx:id="coinsText" strokeType="OUTSIDE" strokeWidth="0.0" text="Coins: " textAlignment="CENTER" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="Power Green" size="36.0" />
-               </font>
-               <BorderPane.margin>
-                  <Insets bottom="20.0" />
-               </BorderPane.margin>
-            </Text>
+            <HBox fx:id="textBox" alignment="CENTER" prefHeight="63.0" prefWidth="606.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Coins: " textAlignment="CENTER">
+                     <font>
+                        <Font name="Power Green" size="36.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="coinsText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
          </bottom>
       </BorderPane>
    </children>
