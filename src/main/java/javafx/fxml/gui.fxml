@@ -16,19 +16,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="503.0" prefWidth="867.0" style="-fx-border-width: 50;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Controller">
+<AnchorPane prefHeight="506.0" prefWidth="856.0" style="-fx-border-width: 50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Controller">
    <children>
       <HBox layoutY="294.0" prefHeight="212.0" prefWidth="608.0">
          <children>
-            <ScrollPane prefHeight="212.0" prefWidth="534.0" style="-fx-background-color: transparent;" stylesheets="@scrollpane.css">
+            <ScrollPane prefHeight="212.0" prefWidth="524.0" style="-fx-background-color: transparent;" stylesheets="@scrollpane.css">
                <content>
-                  <FlowPane fx:id="inventory" hgap="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="211.0" prefWidth="504.0" style="-fx-background-color: #AFAFAF; -fx-border-width: 2px; -fx-border-color: #000000;" vgap="5.0">
+                  <FlowPane fx:id="inventory" hgap="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="211.0" prefWidth="509.0" style="-fx-background-color: #AFAFAF; -fx-border-width: 2px; -fx-border-color: #000000;" vgap="5.0">
                      <padding>
                         <Insets left="5.0" right="5.0" top="5.0" />
                      </padding></FlowPane>
                </content>
             </ScrollPane>
-            <VBox alignment="TOP_CENTER" prefHeight="177.0" prefWidth="82.0" style="-fx-background-color: #AFAFAF; -fx-border-width: 2px; -fx-border-color: #000000;" HBox.hgrow="ALWAYS">
+            <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="75.0" style="-fx-background-color: #AFAFAF; -fx-border-width: 2px; -fx-border-color: #000000;" HBox.hgrow="ALWAYS">
                <children>
                   <Button mnemonicParsing="false" onMouseClicked="#sellAll" prefHeight="26.0" prefWidth="54.0" text="Sell All">
                      <opaqueInsets>
@@ -42,9 +42,9 @@
             </VBox>
          </children>
       </HBox>
-      <VBox layoutX="609.0" prefHeight="503.0" prefWidth="247.0">
+      <VBox layoutX="609.0" prefHeight="506.0" prefWidth="247.0">
          <children>
-            <GridPane prefHeight="503.0" prefWidth="282.0" style="-fx-background-color: #AFAFAF; -fx-border-color: #000000; -fx-border-width: 2px;">
+            <GridPane prefHeight="525.0" prefWidth="247.0" style="-fx-background-color: #AFAFAF; -fx-border-color: #000000; -fx-border-width: 2px;">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -136,11 +136,6 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Coins: " textAlignment="CENTER">
                      <font>
                         <Font name="Power Green" size="36.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="coinsText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
-                     <font>
-                        <Font size="36.0" />
                      </font>
                   </Text>
                </children>

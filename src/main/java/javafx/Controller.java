@@ -12,22 +12,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 public class Controller extends Main {
 
     @FXML
     public FlowPane inventory;
 
-    @FXML
-    private Text coinsPokeText;
 
     @FXML
     private ImageView pokemonImage;
 
-
-    @FXML
-    public static Text coinsText = new Text("");
 
     @FXML
     private Button pokeballButton;
@@ -39,7 +33,7 @@ public class Controller extends Main {
     private Button sellButton;
 
     @FXML
-    private HBox textBox;
+    public static HBox textBox;
 
 
 
@@ -49,6 +43,8 @@ public class Controller extends Main {
         
 
     }
+
+    
 
 
     @FXML
@@ -67,7 +63,6 @@ public class Controller extends Main {
 
             this.inventory.getChildren().add(pane);
             coins.add(-250);
-            coinsText.setText("Coins: " + coins);
         }
 
     }
@@ -114,10 +109,6 @@ public class Controller extends Main {
 
     }
 
-    @FXML
-    void sell(MouseEvent event) {
-
-    }
     
     @FXML
     void sellAll(MouseEvent event) {
