@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class Controller extends Main {
 
@@ -33,18 +34,31 @@ public class Controller extends Main {
     private Button sellButton;
 
     @FXML
-    public static HBox textBox;
+    public HBox textBox;
+
+    Text coinsText = new Text();
+    private boolean hasRun = false;
 
 
 
     @FXML
     void countMoney(MouseEvent event) {
-        Main.coins.add(1);
+
+        if (hasRun == false) {
+            setText();
+            hasRun = true;
+        }
+        
+        coins.add(1);
         
 
     }
 
-    
+    public void setText() {
+        coinsText.setStyle("-fx-font: 36 arial;");       
+        textBox.getChildren().add(coinsText);      
+        coinsText.textProperty().bind(coins.asString());
+    }
 
 
     @FXML
@@ -62,7 +76,7 @@ public class Controller extends Main {
             VBox pane = Inventory.newPokeRoll(name, list, shiny);
 
             this.inventory.getChildren().add(pane);
-            coins.add(-250);
+            coins.subtract(250);
         }
 
     }
@@ -82,7 +96,7 @@ public class Controller extends Main {
             VBox pane = Inventory.newPokeRoll(name, list, shiny);
 
             this.inventory.getChildren().add(pane);
-            coins.add(-50);
+            coins.subtract(50);
             
         }
 
@@ -103,7 +117,7 @@ public class Controller extends Main {
             VBox pane = Inventory.newPokeRoll(name, list, shiny);
 
             this.inventory.getChildren().add(pane);
-            coins.add(-500);
+            coins.subtract(500);
             
         }
 
