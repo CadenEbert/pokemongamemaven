@@ -5,10 +5,8 @@ package javafx;
 public class PokeBallRoll  {
 
     public static String pokeballOpen(){
-        
         String[] pokeball = { "Bulbasaur", "Charmander", "Squirtle", "Caterpie", "Metapod", "Weedle",  "Pidgey",  "Rattata", "Ekans", "Pikachu", "Nidoran", "Nidoran", "Clefairy", "Vulpix","Jigglypuff", "Zubat", "Oddish", "Paras", "Venonat", "Diglett", "Meowth", "Psyduck","Mankey", "Growlithe", "Poliwag", "Abra", "Machop", "Bellsprout", "Tentacool","Geodude", "Ponyta", "Slowpoke", "Magnemite", "Doduo", "Seel", "Grimer", "Shellder","Gastly", "Drowzee", "Krabby", "Voltorb", "Exeggcute", "Cubone", "Hitmonlee", "Koffing","Rhyhorn", "Tangela", "Horsea", "Goldeen", "Staryu", "Tauros", "Magikarp", "Eevee","Omanyte", "Kabuto", "Dratini" };
         int roll = (int) (Math.random() * pokeball.length);
-        
         return pokeball[roll];
     }
 

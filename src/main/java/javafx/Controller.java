@@ -45,7 +45,7 @@ public class Controller extends Main {
             hasRun = true;
 
         }
-        coins.add(1);
+        coins.set(coins.get() + 1);
     }
 
     public void setText(){
@@ -73,10 +73,9 @@ public class Controller extends Main {
             VBox pane = Inventory.newPokeRoll(name, list, shiny);
 
             this.inventory.getChildren().add(pane);
-            coins.subtract(250);
+            coins.set(coins.get() - 250);
             System.out.println(coins);
         }
-
     }
 
     @FXML

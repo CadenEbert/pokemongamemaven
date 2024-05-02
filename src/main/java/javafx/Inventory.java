@@ -60,7 +60,6 @@ public class Inventory extends Main {
         HBox hbox = new HBox();
         hbox.getChildren().addAll(textCost, button);
 
-
         pane.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         pokemonName.setStyle("-fx-alignment: center");
         pokemonName.setStyle("flex-direction: column");

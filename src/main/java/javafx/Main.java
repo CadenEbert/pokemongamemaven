@@ -14,8 +14,6 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
         public static IntegerProperty coins = new SimpleIntegerProperty(1000);
         
-        
-
         public void start(Stage primaryStage) throws IOException {
                 java.net.URL url = Paths.get("./src/main/java/javafx/fxml/gui.fxml").toUri().toURL();
                 Parent root = FXMLLoader.load(url);
@@ -25,7 +23,6 @@ public class Main extends Application {
         }
 
         public static void main(String[] args)  {
-                launch(args);
-                
+                launch(args);                
         }
 }
