@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="506.0" prefWidth="856.0" style="-fx-border-width: 50;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Controller">
+<AnchorPane prefHeight="506.0" prefWidth="856.0" style="-fx-border-width: 50;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Controller">
    <children>
       <HBox layoutY="294.0" prefHeight="212.0" prefWidth="608.0">
          <children>
@@ -44,7 +44,7 @@
       </HBox>
       <VBox layoutX="609.0" prefHeight="506.0" prefWidth="247.0">
          <children>
-            <GridPane prefHeight="525.0" prefWidth="247.0" style="-fx-background-color: #AFAFAF; -fx-border-color: #000000; -fx-border-width: 2px;">
+            <GridPane prefHeight="525.0" prefWidth="247.0" style="-fx-background-color: #AFAFAF; -fx-border-color: #000000; -fx-border-width: 2px;" VBox.vgrow="ALWAYS">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -137,6 +137,9 @@
                      <font>
                         <Font name="Power Green" size="36.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets bottom="7.0" />
+                     </HBox.margin>
                   </Text>
                </children>
             </HBox>

@@ -38,9 +38,6 @@ public class Controller extends Main {
 
     private boolean hasRun = false;
 
-
-
-
     @FXML
     void countMoney(MouseEvent event) {
         if (hasRun == false) {

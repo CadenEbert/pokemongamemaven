@@ -21,9 +21,6 @@ public class Main extends Application {
                 Parent root = FXMLLoader.load(url);
                 primaryStage.setTitle("Game");
                 primaryStage.setScene(new Scene(root));
-
-                
-
                 primaryStage.show();
         }
 

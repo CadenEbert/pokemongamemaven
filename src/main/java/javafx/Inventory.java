@@ -46,11 +46,11 @@ public class Inventory extends Main {
 
 
 
-    public static VBox newPane(String imageString, String name, int list) {
+    public static VBox newPane(String imageString, String name, int list, boolean shiny) {
         VBox pane = new VBox();
         pane.setPrefSize(70,130);
         Button button = new Button("Sell");
-        String cost = getCost(name, list);
+        String cost = getCost(name, list, shiny);
         Text textCost = new Text("$" + cost);
         ImageView image = new ImageView(imageString);
         Text pokemonName = new Text(name);
@@ -95,7 +95,7 @@ public class Inventory extends Main {
 
     public static VBox newPokeRoll(String name, int list, boolean shiny) throws FileNotFoundException{
         String image = getImage(name, shiny);
-        VBox newPane = newPane(image, name, list);
+        VBox newPane = newPane(image, name, list, shiny);
         return newPane;
     }
 
@@ -134,7 +134,7 @@ public class Inventory extends Main {
         return image;
     }
 
-    public static String getCost(String name, int list) {
+    public static String getCost(String name, int list, boolean shiny) {
         int roll = 0;
         String cost = "";
 
@@ -151,6 +151,9 @@ public class Inventory extends Main {
             roll += (int)(Math.random() * 500) + 300;
             cost = String.valueOf(roll);
             break;
+        }
+        if (shiny == true) {
+            cost = String.valueOf(Integer.parseInt(cost) * 2);
         }
         return cost;
     }
