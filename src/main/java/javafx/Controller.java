@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class Controller extends Main {
 
@@ -33,18 +34,28 @@ public class Controller extends Main {
     private Button sellButton;
 
     @FXML
-    public static HBox textBox = new HBox();
+    public HBox textBox;
+
+    private boolean hasRun = false;
 
 
 
 
     @FXML
     void countMoney(MouseEvent event) {
-        
-        coins.add(1);
-        
-        
+        if (hasRun == false) {
+            setText();
+            hasRun = true;
 
+        }
+        coins.add(1);
+    }
+
+    public void setText(){
+        Text coinsText = new Text();
+        coinsText.setStyle("-fx-font: 36 arial;");       
+        textBox.getChildren().add(coinsText); 
+        coinsText.textProperty().bind(coins.asString());
     }
 
     
