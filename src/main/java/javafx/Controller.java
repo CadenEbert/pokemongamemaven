@@ -74,7 +74,6 @@ public class Controller extends Main {
 
             this.inventory.getChildren().add(pane);
             coins.set(coins.get() - 250);
-            System.out.println(coins);
         }
     }
 
@@ -93,7 +92,7 @@ public class Controller extends Main {
             VBox pane = Inventory.newPokeRoll(name, list, shiny);
 
             this.inventory.getChildren().add(pane);
-            coins.subtract(50);
+            coins.set(coins.get() - 50);
             
         }
 
@@ -114,7 +113,7 @@ public class Controller extends Main {
             VBox pane = Inventory.newPokeRoll(name, list, shiny);
 
             this.inventory.getChildren().add(pane);
-            coins.subtract(500);
+            coins.set(coins.get() - 500);
             
         }
 
@@ -125,7 +124,7 @@ public class Controller extends Main {
     void sellAll(MouseEvent event) {
         inventory.getChildren().clear();
         for (int i = 0; i < Inventory.totalCost.size(); i++) {
-            coins.add(Inventory.totalCost.get(i));
+            coins.set(coins.get() + Inventory.totalCost.get(i));
             
         }
         Inventory.totalCost.clear();

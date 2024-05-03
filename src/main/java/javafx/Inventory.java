@@ -60,7 +60,11 @@ public class Inventory extends Main {
         HBox hbox = new HBox();
         hbox.getChildren().addAll(textCost, button);
 
-        pane.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+        if (shiny == true) {
+            pane.setBorder(new Border(new BorderStroke(Color.YELLOW, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+        } else {
+            pane.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+        }
         pokemonName.setStyle("-fx-alignment: center");
         pokemonName.setStyle("flex-direction: column");
         pane.setStyle("-fx-background-color: #DCDCDC");
@@ -75,7 +79,7 @@ public class Inventory extends Main {
         EventHandler<ActionEvent> sell = new EventHandler<ActionEvent>() { 
             public void handle(ActionEvent e) 
             { 
-                coins.add(Integer.parseInt(cost));
+                coins.set(coins.get() + Integer.parseInt(cost));
                 ((FlowPane) pane.getParent()).getChildren().remove(pane);
                 for (int i = 0; i < totalCost.size(); i++) {
                     if (totalCost.get(i) == Integer.parseInt(cost)){
