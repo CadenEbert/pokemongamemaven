@@ -22,13 +22,13 @@
          <children>
             <ScrollPane prefHeight="212.0" prefWidth="524.0" style="-fx-background-color: transparent;" stylesheets="@scrollpane.css">
                <content>
-                  <FlowPane fx:id="inventory" hgap="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="211.0" prefWidth="509.0" style="-fx-background-color: #AFAFAF; -fx-border-width: 2px; -fx-border-color: #000000;" vgap="5.0">
+                  <FlowPane fx:id="inventory" hgap="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="211.0" prefWidth="506.0" style="-fx-background-color: #AFAFAF; -fx-border-width: 2px; -fx-border-color: #000000;" vgap="5.0">
                      <padding>
                         <Insets left="5.0" right="5.0" top="5.0" />
                      </padding></FlowPane>
                </content>
             </ScrollPane>
-            <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="75.0" style="-fx-background-color: #AFAFAF; -fx-border-width: 2px; -fx-border-color: #000000;" HBox.hgrow="ALWAYS">
+            <VBox alignment="TOP_CENTER" prefHeight="212.0" prefWidth="90.0" style="-fx-background-color: #AFAFAF; -fx-border-width: 2px; -fx-border-color: #000000;" HBox.hgrow="ALWAYS">
                <children>
                   <Button mnemonicParsing="false" onMouseClicked="#sellAll" prefHeight="26.0" prefWidth="54.0" text="Sell All">
                      <opaqueInsets>
@@ -44,7 +44,7 @@
       </HBox>
       <VBox layoutX="609.0" prefHeight="506.0" prefWidth="247.0">
          <children>
-            <GridPane prefHeight="525.0" prefWidth="247.0" style="-fx-background-color: #AFAFAF; -fx-border-color: #000000; -fx-border-width: 2px;" VBox.vgrow="ALWAYS">
+            <GridPane alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="525.0" prefWidth="247.0" style="-fx-background-color: #AFAFAF; -fx-border-color: #000000; -fx-border-width: 2px;" VBox.vgrow="ALWAYS">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -118,6 +118,32 @@
                         <Insets bottom="10.0" />
                      </GridPane.margin>
                   </Button>
+                  <ImageView fx:id="badges" fitHeight="62.0" fitWidth="66.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                     <GridPane.margin>
+                        <Insets top="35.0" />
+                     </GridPane.margin>
+                     <image>
+                        <Image url="@../images/Boulder_Badge.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="badgeText" strokeType="OUTSIDE" strokeWidth="0.0" text="Boulder Badge" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                     <GridPane.margin>
+                        <Insets top="10.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Button alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buyBadge" text="Buy" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Text fx:id="badgeCostText" strokeType="OUTSIDE" strokeWidth="0.0" text="100 Coins" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                     <GridPane.margin>
+                        <Insets bottom="40.0" />
+                     </GridPane.margin>
+                  </Text>
                </children>
             </GridPane>
          </children>

@@ -4,8 +4,10 @@ package javafx;
 
 import java.io.FileNotFoundException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -31,12 +33,26 @@ public class Controller extends Main {
     public static AnchorPane pokemonPanel;
 
     @FXML
+    private Text badgeCostText;
+
+    @FXML
     private Button sellButton;
+
+    @FXML
+    private Text badgeText;
+
+    @FXML
+    private ImageView badges;
 
     @FXML
     public HBox textBox;
 
     private boolean hasRun = false;
+
+    private static String[] badgeList = {"Boulder", "Cascade", "Thunder", "Rainbow", "Soul", "Marsh", "Volcano", "Earth"};
+    private static int[] badgeCost = {100, 500, 1000, 2000, 4000, 6000, 8000, 10000};
+    private int currentBadge = 0;
+    private int multiplier = 1;
 
     @FXML
     void countMoney(MouseEvent event) {
@@ -45,7 +61,7 @@ public class Controller extends Main {
             hasRun = true;
 
         }
-        coins.set(coins.get() + 1);
+        coins.set(coins.get() + multiplier);
     }
 
     public void setText(){
@@ -53,6 +69,27 @@ public class Controller extends Main {
         coinsText.setStyle("-fx-font: 36 arial;");       
         textBox.getChildren().add(coinsText); 
         coinsText.textProperty().bind(coins.asString());
+    }
+
+    @FXML
+    void buyBadge(ActionEvent event) {
+        if (coins.get() >= badgeCost[currentBadge] && currentBadge != 7) {
+            multiplier += currentBadge;
+            coins.set(coins.get() - badgeCost[currentBadge]);
+            currentBadge += 1;
+            badgeText.setText(badgeList[currentBadge] + " Badge");
+            badgeCostText.setText(String.valueOf(badgeCost[currentBadge]) + " Coins");
+            changeBadge(currentBadge); 
+        } else {
+            badgeCostText.setText("MAX BADGE");
+        }
+    }
+
+    private void changeBadge(int currentBadge){
+        String badge = badgeList[currentBadge];
+        Image newImage = new Image(getClass().getResource("/javafx/images/" + badge + "_Badge.png").toExternalForm());
+        badges.setImage(newImage);
+        
     }
 
     
