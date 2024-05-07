@@ -81,9 +81,11 @@ public class Inventory extends Main {
             { 
                 coins.set(coins.get() + Integer.parseInt(cost));
                 ((FlowPane) pane.getParent()).getChildren().remove(pane);
+                Controller.paneList.remove(pane);
                 for (int i = 0; i < totalCost.size(); i++) {
                     if (totalCost.get(i) == Integer.parseInt(cost)){
                         totalCost.remove(i);
+                        
                     }
                 }
                 

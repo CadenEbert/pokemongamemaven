@@ -3,9 +3,16 @@ package javafx;
 
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,6 +22,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class Controller extends Main {
 
@@ -24,6 +32,9 @@ public class Controller extends Main {
 
     @FXML
     private ImageView pokemonImage;
+
+    @FXML
+    private Button badgeBut;
 
 
     @FXML
@@ -47,12 +58,16 @@ public class Controller extends Main {
     @FXML
     public HBox textBox;
 
+    private Stage stage;
+    private Scene scene;
+
     private boolean hasRun = false;
 
     private static String[] badgeList = {"Boulder", "Cascade", "Thunder", "Rainbow", "Soul", "Marsh", "Volcano", "Earth"};
     private static int[] badgeCost = {100, 500, 1000, 2000, 4000, 6000, 8000, 10000};
     private int currentBadge = 0;
     private int multiplier = 1;
+    public static ArrayList<VBox> paneList = new ArrayList<VBox>();
 
     @FXML
     void countMoney(MouseEvent event) {
@@ -63,6 +78,19 @@ public class Controller extends Main {
         }
         coins.set(coins.get() + multiplier);
     }
+
+    @FXML
+    void pcScene(ActionEvent event) throws IOException {
+        java.net.URL url = Paths.get("./src/main/java/javafx/fxml/PC.fxml").toUri().toURL();
+        Parent root = FXMLLoader.load(url);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); 
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    
 
     public void setText(){
         Text coinsText = new Text();
@@ -82,6 +110,7 @@ public class Controller extends Main {
             changeBadge(currentBadge); 
         } else {
             badgeCostText.setText("MAX BADGE");
+            badgeBut.setDisable(true);
         }
     }
 
@@ -109,6 +138,8 @@ public class Controller extends Main {
             String name = PokeBallRoll.greatballOpen();
             VBox pane = Inventory.newPokeRoll(name, list, shiny);
 
+            paneList.add(pane);
+
             this.inventory.getChildren().add(pane);
             coins.set(coins.get() - 250);
         }
@@ -127,6 +158,8 @@ public class Controller extends Main {
         if (coins.get() >= 50) {
             String name = PokeBallRoll.pokeballOpen();
             VBox pane = Inventory.newPokeRoll(name, list, shiny);
+
+            paneList.add(pane);
 
             this.inventory.getChildren().add(pane);
             coins.set(coins.get() - 50);
@@ -149,6 +182,8 @@ public class Controller extends Main {
             String name = PokeBallRoll.ultraballOpen();
             VBox pane = Inventory.newPokeRoll(name, list, shiny);
 
+            paneList.add(pane);
+
             this.inventory.getChildren().add(pane);
             coins.set(coins.get() - 500);
             
@@ -164,6 +199,7 @@ public class Controller extends Main {
             coins.set(coins.get() + Inventory.totalCost.get(i));
             
         }
+        paneList.clear();
         Inventory.totalCost.clear();
     }
 
