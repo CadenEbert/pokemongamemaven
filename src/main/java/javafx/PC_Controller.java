@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class PC_Controller {
+public class PC_Controller extends Controller {
 
     private Stage stage;
     private Scene scene;
@@ -29,7 +29,6 @@ public class PC_Controller {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
     
 }

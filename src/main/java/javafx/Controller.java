@@ -120,9 +120,7 @@ public class Controller extends Main {
         badges.setImage(newImage);
         
     }
-
     
-
 
     @FXML
     void openGreatBall(MouseEvent event) throws FileNotFoundException {
@@ -140,7 +138,7 @@ public class Controller extends Main {
 
             paneList.add(pane);
 
-            this.inventory.getChildren().add(pane);
+            inventory.getChildren().add(pane);
             coins.set(coins.get() - 250);
         }
     }
