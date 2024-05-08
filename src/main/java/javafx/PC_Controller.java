@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 public class PC_Controller extends Controller {
@@ -20,6 +21,22 @@ public class PC_Controller extends Controller {
 
     @FXML
     private Button Exit;
+
+    @FXML
+    public static FlowPane pcInventory1;
+
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        for (int i = 0; i < paneList.size(); i++) {
+            pcInventory1.getChildren().add(paneList.get(i));
+        }
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+
 
     @FXML
     void switchToMain(ActionEvent event) throws IOException {

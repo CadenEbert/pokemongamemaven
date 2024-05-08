@@ -43,6 +43,7 @@ public class Inventory extends Main {
     "Porygon","Omanyte", "Omastar", "Kabuto", "Kabutops", "Aerodactyl", "Snorlax", "Articuno", "Zapdos",
     "Moltres","Dratini", "Dragonair", "Dragonite", "Mewtwo", "Mew" };
     public static ArrayList<Integer> totalCost = new ArrayList<Integer>();
+    public static boolean[] caught = new boolean[151];
 
 
 

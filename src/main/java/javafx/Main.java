@@ -2,17 +2,20 @@ package javafx;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
         public static IntegerProperty coins = new SimpleIntegerProperty(100000);
+        public static ArrayList<VBox> paneList = new ArrayList<VBox>();
         
         public void start(Stage primaryStage) throws IOException {
                 java.net.URL url = Paths.get("./src/main/java/javafx/fxml/gui.fxml").toUri().toURL();

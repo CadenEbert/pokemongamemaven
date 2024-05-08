@@ -43,6 +43,14 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Button>
+                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Poke-Dex">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
                </children>
             </VBox>
          </children>
@@ -182,6 +190,14 @@
                         <Insets bottom="10.0" />
                      </GridPane.margin>
                   </Button>
+                  <ImageView fitHeight="86.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                     <GridPane.margin>
+                        <Insets top="15.0" />
+                     </GridPane.margin>
+                     <image>
+                        <Image url="@../images/BugCatcher.png" />
+                     </image>
+                  </ImageView>
                </children>
             </GridPane>
          </children>

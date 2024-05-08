@@ -24,7 +24,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class Controller extends Main {
+public class Controller extends Main  {
 
     @FXML
     public FlowPane inventory;
@@ -67,7 +67,7 @@ public class Controller extends Main {
     private static int[] badgeCost = {100, 500, 1000, 2000, 4000, 6000, 8000, 10000};
     private int currentBadge = 0;
     private int multiplier = 1;
-    public static ArrayList<VBox> paneList = new ArrayList<VBox>();
+    
 
     @FXML
     void countMoney(MouseEvent event) {
@@ -87,7 +87,6 @@ public class Controller extends Main {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
     
