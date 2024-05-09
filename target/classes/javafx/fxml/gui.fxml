@@ -204,7 +204,7 @@
       </VBox>
       <BorderPane prefHeight="296.0" prefWidth="609.0" style="-fx-background-color: #BDF0E7; -fx-border-color: #000000; -fx-border-width: 2px;">
          <center>
-            <ImageView fitHeight="224.0" fitWidth="305.0" nodeOrientation="INHERIT" onMouseClicked="#countMoney" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER">
+            <ImageView fitHeight="233.0" fitWidth="296.0" nodeOrientation="INHERIT" onMouseClicked="#countMoney" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER">
                <image>
                   <Image url="@../images/pokeball.png" />
                </image>

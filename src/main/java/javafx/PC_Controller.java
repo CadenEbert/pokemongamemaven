@@ -14,29 +14,21 @@ import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 public class PC_Controller extends Controller {
+    PC_Controller instance = null;
 
     private Stage stage;
     private Scene scene;
-
 
     @FXML
     private Button Exit;
 
     @FXML
-    public static FlowPane pcInventory1;
+    public FlowPane pcInventory1;
 
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        for (int i = 0; i < paneList.size(); i++) {
-            pcInventory1.getChildren().add(paneList.get(i));
-        }
+
+    public void update() {
+        
     }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-
 
     @FXML
     void switchToMain(ActionEvent event) throws IOException {
@@ -46,6 +38,16 @@ public class PC_Controller extends Controller {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @Override
+    void pcScene(ActionEvent event) throws IOException {
+        super.pcScene(event);
+        System.out.println("helloo");
+        for (int i = 0; i < paneList.size(); i++) {
+            pcInventory1.getChildren().add(paneList.get(i));
+            System.out.println("Hello");
+        }
     }
     
 }

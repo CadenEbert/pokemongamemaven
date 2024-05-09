@@ -5,8 +5,6 @@ package javafx;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -86,6 +84,7 @@ public class Controller extends Main  {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); 
         scene = new Scene(root);
         stage.setScene(scene);
+        System.out.println("hello");
         stage.show();
     }
 
@@ -109,6 +108,7 @@ public class Controller extends Main  {
             changeBadge(currentBadge); 
         } else {
             badgeCostText.setText("MAX BADGE");
+            coins.set(coins.get() - badgeCost[currentBadge]);
             badgeBut.setDisable(true);
         }
     }
