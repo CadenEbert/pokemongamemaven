@@ -1,9 +1,7 @@
 package javafx;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-
 import javafx.application.Application;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -16,13 +14,22 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
         public static IntegerProperty coins = new SimpleIntegerProperty(100000);
         public static ArrayList<VBox> paneList = new ArrayList<VBox>();
+        public static int currentBadge = 0;
+        public static int multiplier = 1;
+        Parent root;
         
         public void start(Stage primaryStage) throws IOException {
-                java.net.URL url = Paths.get("./src/main/java/javafx/fxml/gui.fxml").toUri().toURL();
-                Parent root = FXMLLoader.load(url);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/gui.fxml"));
+                root = loader.load();
+
+                Controller mainControl = loader.getController();
+                mainControl.setText();
+
                 primaryStage.setTitle("Game");
                 primaryStage.setScene(new Scene(root));
                 primaryStage.show();
+
+                
         }
 
         public static void main(String[] args)  {

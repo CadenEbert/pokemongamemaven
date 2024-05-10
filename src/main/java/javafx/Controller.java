@@ -4,7 +4,6 @@ package javafx;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Paths;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,34 +57,51 @@ public class Controller extends Main  {
 
     private Stage stage;
     private Scene scene;
+    private Parent root;
 
-    private boolean hasRun = false;
+    @FXML
+    public FlowPane pcInventory1;
 
     private static String[] badgeList = {"Boulder", "Cascade", "Thunder", "Rainbow", "Soul", "Marsh", "Volcano", "Earth"};
     private static int[] badgeCost = {100, 500, 1000, 2000, 4000, 6000, 8000, 10000};
-    private int currentBadge = 0;
-    private int multiplier = 1;
+    
     
 
     @FXML
     void countMoney(MouseEvent event) {
-        if (hasRun == false) {
-            setText();
-            hasRun = true;
-
-        }
         coins.set(coins.get() + multiplier);
     }
 
+    
+
     @FXML
     void pcScene(ActionEvent event) throws IOException {
-        java.net.URL url = Paths.get("./src/main/java/javafx/fxml/PC.fxml").toUri().toURL();
-        Parent root = FXMLLoader.load(url);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/PC.fxml"));
+        root = loader.load();
+
+        PC_Controller pc = loader.getController();
+        pc.update();
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); 
         scene = new Scene(root);
         stage.setScene(scene);
-        System.out.println("hello");
         stage.show();
+    }
+
+    public void update() {
+        for (int i = 0; i < paneList.size(); i++) {
+            inventory.getChildren().add(paneList.get(i));
+        }
+        if (currentBadge < 8) {
+            badgeText.setText(badgeList[currentBadge] + " Badge");
+            badgeCostText.setText(String.valueOf(badgeCost[currentBadge]) + " Coins");
+            changeBadge(currentBadge); 
+        } else {
+            changeBadge(currentBadge - 1);
+            badgeCostText.setText("MAX BADGE");
+            badgeBut.setDisable(true);
+        }
+
     }
 
     
@@ -110,6 +126,7 @@ public class Controller extends Main  {
             badgeCostText.setText("MAX BADGE");
             coins.set(coins.get() - badgeCost[currentBadge]);
             badgeBut.setDisable(true);
+            currentBadge += 1;
         }
     }
 

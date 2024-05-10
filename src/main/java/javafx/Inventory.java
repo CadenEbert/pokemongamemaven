@@ -86,7 +86,6 @@ public class Inventory extends Main {
                 for (int i = 0; i < totalCost.size(); i++) {
                     if (totalCost.get(i) == Integer.parseInt(cost)){
                         totalCost.remove(i);
-                        
                     }
                 }
                 

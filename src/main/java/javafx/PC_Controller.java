@@ -1,8 +1,6 @@
 package javafx;
 
 import java.io.IOException;
-import java.nio.file.Paths;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +16,7 @@ public class PC_Controller extends Controller {
 
     private Stage stage;
     private Scene scene;
+    private Parent root;
 
     @FXML
     private Button Exit;
@@ -26,28 +25,27 @@ public class PC_Controller extends Controller {
     public FlowPane pcInventory1;
 
 
-    public void update() {
-        
-    }
-
     @FXML
     void switchToMain(ActionEvent event) throws IOException {
-        java.net.URL url = Paths.get("./src/main/java/javafx/fxml/gui.fxml").toUri().toURL();
-        Parent root = FXMLLoader.load(url);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/gui.fxml"));
+        root = loader.load();
+
+        Controller mainControl = loader.getController();
+        mainControl.update();
+        mainControl.setText();
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); 
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    @Override
-    void pcScene(ActionEvent event) throws IOException {
-        super.pcScene(event);
-        System.out.println("helloo");
+
+    public void update() {
         for (int i = 0; i < paneList.size(); i++) {
             pcInventory1.getChildren().add(paneList.get(i));
-            System.out.println("Hello");
         }
+
     }
     
 }
