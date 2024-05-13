@@ -72,6 +72,12 @@ public class Controller extends Main  {
         coins.set(coins.get() + multiplier);
     }
 
+    @FXML
+    void addTrainer(ActionEvent event) throws InterruptedException {
+        
+
+    }
+
     
 
     @FXML

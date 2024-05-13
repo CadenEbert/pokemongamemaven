@@ -11,11 +11,25 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
+
 public class Main extends Application {
         public static IntegerProperty coins = new SimpleIntegerProperty(100000);
         public static ArrayList<VBox> paneList = new ArrayList<VBox>();
         public static int currentBadge = 0;
         public static int multiplier = 1;
+        public static boolean scene2 = false;
+        Runnable trainer = new Runnable() {
+                public void addOne() {
+                        coins.set(coins.get() + 1);
+
+                }
+
+                @Override
+                public void run() {
+                        // TODO Auto-generated method stub
+                        throw new UnsupportedOperationException("Unimplemented method 'run'");
+                }
+        };
         Parent root;
         
         public void start(Stage primaryStage) throws IOException {

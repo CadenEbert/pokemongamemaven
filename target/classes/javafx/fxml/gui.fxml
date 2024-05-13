@@ -185,7 +185,7 @@
                         <Insets bottom="40.0" />
                      </GridPane.margin>
                   </Text>
-                  <Button mnemonicParsing="false" text="Buy" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                  <Button mnemonicParsing="false" onAction="#addTrainer" text="Buy" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                      <GridPane.margin>
                         <Insets bottom="10.0" />
                      </GridPane.margin>
