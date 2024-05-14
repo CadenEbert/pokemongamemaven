@@ -4,6 +4,11 @@ package javafx;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -66,7 +71,7 @@ public class Controller extends Main  {
     private static int[] badgeCost = {100, 500, 1000, 2000, 4000, 6000, 8000, 10000};
     
     
-
+    //adds # of multiplier to coins
     @FXML
     void countMoney(MouseEvent event) {
         coins.set(coins.get() + multiplier);
@@ -79,7 +84,7 @@ public class Controller extends Main  {
     }
 
     
-
+    //switches to pc scene
     @FXML
     void pcScene(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/PC.fxml"));
@@ -94,6 +99,7 @@ public class Controller extends Main  {
         stage.show();
     }
 
+    //updates badges and coins when switching scenes
     public void update() {
         for (int i = 0; i < paneList.size(); i++) {
             inventory.getChildren().add(paneList.get(i));
@@ -111,7 +117,7 @@ public class Controller extends Main  {
     }
 
     
-
+    //binds text of coins
     public void setText(){
         Text coinsText = new Text();
         coinsText.setStyle("-fx-font: 36 arial;");       
@@ -119,10 +125,11 @@ public class Controller extends Main  {
         coinsText.textProperty().bind(coins.asString());
     }
 
+    //changes badge picture and adds to multiplier
     @FXML
     void buyBadge(ActionEvent event) {
         if (coins.get() >= badgeCost[currentBadge] && currentBadge != 7) {
-            multiplier += currentBadge;
+            multiplier += currentBadge + 1;
             coins.set(coins.get() - badgeCost[currentBadge]);
             currentBadge += 1;
             badgeText.setText(badgeList[currentBadge] + " Badge");
@@ -130,12 +137,14 @@ public class Controller extends Main  {
             changeBadge(currentBadge); 
         } else {
             badgeCostText.setText("MAX BADGE");
+            multiplier += currentBadge + 1;
             coins.set(coins.get() - badgeCost[currentBadge]);
             badgeBut.setDisable(true);
             currentBadge += 1;
         }
     }
 
+    //changes badge picture
     private void changeBadge(int currentBadge){
         String badge = badgeList[currentBadge];
         Image newImage = new Image(getClass().getResource("/javafx/images/" + badge + "_Badge.png").toExternalForm());
@@ -143,7 +152,7 @@ public class Controller extends Main  {
         
     }
     
-
+    //rolls greatball and adds panel
     @FXML
     void openGreatBall(MouseEvent event) throws FileNotFoundException {
         int list = 2;
@@ -165,6 +174,7 @@ public class Controller extends Main  {
         }
     }
 
+    //rolls poekball and adds panel
     @FXML
     void openPokeBall(MouseEvent event) throws FileNotFoundException {
         int list = 1;
@@ -188,6 +198,7 @@ public class Controller extends Main  {
 
     }
 
+    //rolls ultraball and adds panel
     @FXML
     void openUltraBall(MouseEvent event) throws FileNotFoundException {
         int list = 3;
@@ -208,10 +219,9 @@ public class Controller extends Main  {
             coins.set(coins.get() - 500);
             
         }
-
     }
 
-    
+    //sells every panel in inventory (not in pc)
     @FXML
     void sellAll(MouseEvent event) {
         inventory.getChildren().clear();

@@ -2,6 +2,9 @@ package javafx;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+
 import javafx.application.Application;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -13,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
+        public final ScheduledExecutorService scheduleur = Executors.newScheduledThreadPool(1);
         public static IntegerProperty coins = new SimpleIntegerProperty(100000);
         public static ArrayList<VBox> paneList = new ArrayList<VBox>();
         public static int currentBadge = 0;
@@ -21,7 +25,6 @@ public class Main extends Application {
         Runnable trainer = new Runnable() {
                 public void addOne() {
                         coins.set(coins.get() + 1);
-
                 }
 
                 @Override

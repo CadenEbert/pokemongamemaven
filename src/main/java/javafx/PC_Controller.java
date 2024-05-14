@@ -24,7 +24,7 @@ public class PC_Controller extends Controller {
     @FXML
     public FlowPane pcInventory1;
 
-
+    //switches to main scene
     @FXML
     void switchToMain(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/gui.fxml"));
@@ -40,7 +40,7 @@ public class PC_Controller extends Controller {
         stage.show();
     }
 
-
+    //updates panels when switching scenes
     public void update() {
         for (int i = 0; i < paneList.size(); i++) {
             pcInventory1.getChildren().add(paneList.get(i));

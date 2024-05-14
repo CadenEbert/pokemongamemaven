@@ -46,7 +46,7 @@ public class Inventory extends Main {
     public static boolean[] caught = new boolean[151];
 
 
-
+    //creates pokemon panel
     public static VBox newPane(String imageString, String name, int list, boolean shiny) {
         VBox pane = new VBox();
         pane.setPrefSize(70,130);
@@ -97,15 +97,13 @@ public class Inventory extends Main {
         return pane;
     }
     
-
+    //organizes tha panel
     public static VBox newPokeRoll(String name, int list, boolean shiny) throws FileNotFoundException{
-        String image = getImage(name, shiny);
-        VBox newPane = newPane(image, name, list, shiny);
-        return newPane;
+        return newPane(getImage(name, shiny), name, list, shiny);
     }
 
 
-
+    //returns image for given pokemon string
     public static String getImage(String name, boolean shiny) throws FileNotFoundException {
         String index = "";
         String image = "";
@@ -139,6 +137,7 @@ public class Inventory extends Main {
         return image;
     }
 
+    //returns a random number for the cost
     public static String getCost(String name, int list, boolean shiny) {
         int roll = 0;
         String cost = "";
