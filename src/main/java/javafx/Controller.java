@@ -69,6 +69,7 @@ public class Controller extends Main  {
 
     private static String[] badgeList = {"Boulder", "Cascade", "Thunder", "Rainbow", "Soul", "Marsh", "Volcano", "Earth"};
     private static int[] badgeCost = {100, 500, 1000, 2000, 4000, 6000, 8000, 10000};
+    private static boolean shiny;
     
     
     //adds # of multiplier to coins
@@ -156,45 +157,20 @@ public class Controller extends Main  {
     @FXML
     void openGreatBall(MouseEvent event) throws FileNotFoundException {
         int list = 2;
-        boolean shiny = false;
-        int shinyRoll = (int) (Math.random() * 10);
+        
+        VBox pane = PokeBallRoll.openPokeBall(shiny, list, 250);
 
-        if (shinyRoll == 1) {
-            shiny = true;
-        }
-
-        if (Main.coins.get() >= 250) {
-            String name = PokeBallRoll.greatballOpen();
-            VBox pane = Inventory.newPokeRoll(name, list, shiny);
-
-            paneList.add(pane);
-
-            inventory.getChildren().add(pane);
-            coins.set(coins.get() - 250);
-        }
+        this.inventory.getChildren().add(pane);
     }
 
     //rolls poekball and adds panel
     @FXML
     void openPokeBall(MouseEvent event) throws FileNotFoundException {
         int list = 1;
-        boolean shiny = false;
-        int shinyRoll = (int) (Math.random() * 10);
 
-        if (shinyRoll == 1) {
-            shiny = true;
-        }
+        VBox pane = PokeBallRoll.openPokeBall(shiny, list, 50);
 
-        if (coins.get() >= 50) {
-            String name = PokeBallRoll.pokeballOpen();
-            VBox pane = Inventory.newPokeRoll(name, list, shiny);
-
-            paneList.add(pane);
-
-            this.inventory.getChildren().add(pane);
-            coins.set(coins.get() - 50);
-            
-        }
+        this.inventory.getChildren().add(pane);
 
     }
 
@@ -202,23 +178,10 @@ public class Controller extends Main  {
     @FXML
     void openUltraBall(MouseEvent event) throws FileNotFoundException {
         int list = 3;
-        boolean shiny = false;
-        int shinyRoll = (int) (Math.random() * 10);
 
-        if (shinyRoll == 1) {
-            shiny = true;
-        }
+        VBox pane = PokeBallRoll.openPokeBall(shiny, list, 500);
 
-        if (coins.get() >= 500) {
-            String name = PokeBallRoll.ultraballOpen();
-            VBox pane = Inventory.newPokeRoll(name, list, shiny);
-
-            paneList.add(pane);
-
-            this.inventory.getChildren().add(pane);
-            coins.set(coins.get() - 500);
-            
-        }
+        this.inventory.getChildren().add(pane);
     }
 
     //sells every panel in inventory (not in pc)

@@ -1,6 +1,9 @@
 package javafx;
 
+import java.io.FileNotFoundException;
 import java.util.Random;
+
+import javafx.scene.layout.VBox;
 
 public class PokeBallRoll  {
     private static final Random RANDOM = new Random();
@@ -24,5 +27,32 @@ public class PokeBallRoll  {
 
     public static String ultraballOpen() {
         return openBall(ULTRABALL_POKEMON);
+    }
+
+    public static VBox openPokeBall(boolean shiny, int list, int cost) throws FileNotFoundException {
+        int shinyRoll = (int) (Math.random() * 10);
+        String name = "";
+
+        if (shinyRoll == 1) {
+            shiny = true;
+        }
+
+        if (Main.coins.get() >= cost) {
+            switch(list){
+                case 1:
+                name = pokeballOpen();
+                break;
+                case 2:
+                name = greatballOpen();
+                break;
+                case 3:
+                name = ultraballOpen();
+                break;
+            }
+        }   
+        VBox pane = Inventory.newPane(name, list, shiny);
+        Controller.paneList.add(pane);
+        Main.coins.set(Main.coins.get() - cost);
+        return pane;
     }
 }
