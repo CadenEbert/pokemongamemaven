@@ -5,7 +5,9 @@ package javafx;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -63,6 +65,7 @@ public class Controller extends Main  {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
 
     @FXML
     public FlowPane pcInventory1;
@@ -80,8 +83,13 @@ public class Controller extends Main  {
 
     @FXML
     void addTrainer(ActionEvent event) throws InterruptedException {
+        if (Main.coins.get() > 150) {
+            executorService.scheduleAtFixedRate(() -> {
+                Main.coins.set(Main.coins.get() + 1);
+            }, 0, 5, TimeUnit.SECONDS);
+            Main.coins.set(Main.coins.get() - 150);
+        }
         
-
     }
 
     
