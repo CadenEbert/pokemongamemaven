@@ -172,7 +172,7 @@
                         <Insets top="10.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text fx:id="badgeText4" strokeType="OUTSIDE" strokeWidth="0.0" text="Trainer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                  <Text fx:id="trainerNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Trainer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets top="10.0" />
                      </GridPane.margin>
@@ -190,9 +190,9 @@
                         <Insets bottom="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <ImageView fx:id="trainerImage" fitHeight="86.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                  <ImageView fx:id="trainerImage" fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                      <GridPane.margin>
-                        <Insets top="15.0" />
+                        <Insets top="25.0" />
                      </GridPane.margin>
                      <image>
                         <Image url="@../images/BugCatcher.png" />

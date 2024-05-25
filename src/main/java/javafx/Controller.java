@@ -60,6 +60,9 @@ public class Controller extends Main  {
     private ImageView trainerImage;
 
     @FXML
+    private Text trainerNameText;
+
+    @FXML
     public HBox textBox;
 
     @FXML
@@ -77,9 +80,10 @@ public class Controller extends Main  {
     private static int[] badgeCost = {100, 500, 1000, 2000, 4000, 6000, 8000, 10000};
     private static boolean shiny;
     private int trainerIndex = 0;
-    private int trainerPeriod = 4;
+    private int trainerPeriod = 5;
+    private int trainerMultiplier = 1;
     private int[] trainerCost = {300, 500, 1000, 2000};
-    private String[] trainerList = {"Blackbelt.png", "Blue.png", "Red.png"};
+    private String[] trainerList = {"Blackbelt", "Blue", "Red"};
     
     
     //adds # of multiplier to coins
@@ -90,15 +94,17 @@ public class Controller extends Main  {
 
     @FXML
     void addTrainer(ActionEvent event) throws InterruptedException {
-        if (Main.coins.get() > trainerCost[trainerIndex] && trainerIndex < 3) {
+        if (Main.coins.get() > trainerCost[trainerIndex] && trainerIndex < trainerList.length) {
             executorService.scheduleAtFixedRate(() -> {
-                Main.coins.set(Main.coins.get() + 1);
+                Main.coins.set(Main.coins.get() + multiplier);
             }, 0, trainerPeriod, TimeUnit.SECONDS);
             Main.coins.set(Main.coins.get() - trainerCost[trainerIndex]);
-            trainerImage.setImage(new Image(getClass().getResource("/javafx/images/" + trainerList[trainerIndex]).toExternalForm()));
-            trainerText.setText(String.valueOf(trainerCost[trainerIndex]));
+            trainerImage.setImage(new Image(getClass().getResource("/javafx/images/" + trainerList[trainerIndex]   + ".png" ).toExternalForm()));
+            trainerText.setText(String.valueOf(trainerCost[trainerIndex] + " Coins"));
+            trainerNameText.setText(trainerList[trainerIndex]);
             trainerIndex += 1;
-            
+            trainerPeriod -= 1;
+            trainerMultiplier += 1;
         }
         
     }

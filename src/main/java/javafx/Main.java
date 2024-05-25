@@ -36,6 +36,9 @@ public class Main extends Application {
                 primaryStage.setTitle("Game");
                 primaryStage.setScene(new Scene(root));
                 primaryStage.show();
+                primaryStage.setOnCloseRequest(event -> {
+                        mainControl.executorService.shutdown();
+                });
 
                 
         }
