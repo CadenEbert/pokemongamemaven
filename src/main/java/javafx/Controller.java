@@ -81,7 +81,6 @@ public class Controller extends Main  {
     private static boolean shiny;
     private int trainerIndex = 0;
     private int trainerPeriod = 5;
-    private int trainerMultiplier = 1;
     private int[] trainerCost = {300, 500, 1000, 2000};
     private String[] trainerList = {"Blackbelt", "Blue", "Red"};
     
@@ -104,7 +103,6 @@ public class Controller extends Main  {
             trainerNameText.setText(trainerList[trainerIndex]);
             trainerIndex += 1;
             trainerPeriod -= 1;
-            trainerMultiplier += 1;
         }
         
     }
