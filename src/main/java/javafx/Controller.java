@@ -62,6 +62,9 @@ public class Controller extends Main  {
     @FXML
     public HBox textBox;
 
+    @FXML
+    private Text trainerText;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -87,12 +90,13 @@ public class Controller extends Main  {
 
     @FXML
     void addTrainer(ActionEvent event) throws InterruptedException {
-        if (Main.coins.get() > trainerCost[trainerIndex]) {
+        if (Main.coins.get() > trainerCost[trainerIndex] && trainerIndex < 3) {
             executorService.scheduleAtFixedRate(() -> {
                 Main.coins.set(Main.coins.get() + 1);
             }, 0, trainerPeriod, TimeUnit.SECONDS);
             Main.coins.set(Main.coins.get() - trainerCost[trainerIndex]);
             trainerImage.setImage(new Image(getClass().getResource("/javafx/images/" + trainerList[trainerIndex]).toExternalForm()));
+            trainerText.setText(String.valueOf(trainerCost[trainerIndex]));
             trainerIndex += 1;
             
         }
