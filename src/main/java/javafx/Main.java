@@ -2,15 +2,13 @@ package javafx;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-
 import javafx.application.Application;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
@@ -29,7 +27,11 @@ public class Main extends Application {
                 root = loader.load();
 
                 Controller mainControl = loader.getController();
-                mainControl.setText();
+                Text coinsText = new Text();
+                coinsText.setStyle("-fx-font: 36 arial;");       
+                mainControl.textBox.getChildren().add(coinsText); 
+                coinsText.textProperty().bind(coins.asString());
+               
 
                 primaryStage.setTitle("Game");
                 primaryStage.setScene(new Scene(root));

@@ -4,11 +4,8 @@ package javafx;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import javafx.event.ActionEvent;
@@ -60,6 +57,9 @@ public class Controller extends Main  {
     private ImageView badges;
 
     @FXML
+    private ImageView trainerImage;
+
+    @FXML
     public HBox textBox;
 
     private Stage stage;
@@ -73,6 +73,10 @@ public class Controller extends Main  {
     private static String[] badgeList = {"Boulder", "Cascade", "Thunder", "Rainbow", "Soul", "Marsh", "Volcano", "Earth"};
     private static int[] badgeCost = {100, 500, 1000, 2000, 4000, 6000, 8000, 10000};
     private static boolean shiny;
+    private int trainerIndex = 0;
+    private int trainerPeriod = 4;
+    private int[] trainerCost = {150, 300, 500, 1000, 2000};
+    private String[] trainerList = {"Blackbelt.png", "Blue.png", "Red.png"};
     
     
     //adds # of multiplier to coins
@@ -83,11 +87,14 @@ public class Controller extends Main  {
 
     @FXML
     void addTrainer(ActionEvent event) throws InterruptedException {
-        if (Main.coins.get() > 150) {
+        if (Main.coins.get() > trainerCost[trainerIndex]) {
             executorService.scheduleAtFixedRate(() -> {
                 Main.coins.set(Main.coins.get() + 1);
-            }, 0, 5, TimeUnit.SECONDS);
-            Main.coins.set(Main.coins.get() - 150);
+            }, 0, trainerPeriod, TimeUnit.SECONDS);
+            Main.coins.set(Main.coins.get() - trainerCost[trainerIndex]);
+            trainerImage.setImage(new Image(getClass().getResource("/javafx/images/" + trainerList[trainerIndex]).toExternalForm()));
+            trainerIndex += 1;
+            
         }
         
     }
@@ -126,13 +133,7 @@ public class Controller extends Main  {
     }
 
     
-    //binds text of coins
-    public void setText(){
-        Text coinsText = new Text();
-        coinsText.setStyle("-fx-font: 36 arial;");       
-        textBox.getChildren().add(coinsText); 
-        coinsText.textProperty().bind(coins.asString());
-    }
+    
 
     //changes badge picture and adds to multiplier
     @FXML

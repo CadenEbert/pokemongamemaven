@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class PC_Controller extends Controller {
@@ -32,7 +33,10 @@ public class PC_Controller extends Controller {
 
         Controller mainControl = loader.getController();
         mainControl.update();
-        mainControl.setText();
+        Text coinsText = new Text();
+        coinsText.setStyle("-fx-font: 36 arial;");       
+        mainControl.textBox.getChildren().add(coinsText); 
+        coinsText.textProperty().bind(coins.asString());
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); 
         scene = new Scene(root);
