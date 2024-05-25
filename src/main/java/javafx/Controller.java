@@ -78,7 +78,7 @@ public class Controller extends Main  {
     private static boolean shiny;
     private int trainerIndex = 0;
     private int trainerPeriod = 4;
-    private int[] trainerCost = {150, 300, 500, 1000, 2000};
+    private int[] trainerCost = {300, 500, 1000, 2000};
     private String[] trainerList = {"Blackbelt.png", "Blue.png", "Red.png"};
     
     
