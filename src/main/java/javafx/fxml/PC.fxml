@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="856.0" style="-fx-border-color: black; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.PC_Controller">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="856.0" style="-fx-border-color: black; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.PC_Controller">
    <children>
       <ToolBar prefHeight="40.0" prefWidth="847.0">
         <items>
@@ -20,7 +20,7 @@
       </ScrollPane>
       <ScrollPane prefHeight="276.0" prefWidth="851.0" style="-fx-border-width: 1; -fx-border-color: black;">
          <content>
-            <FlowPane hgap="10.0" prefHeight="243.0" prefWidth="846.0" vgap="10.0" />
+            <FlowPane fx:id="pcInventory2" hgap="10.0" prefHeight="243.0" prefWidth="846.0" vgap="10.0" />
          </content>
       </ScrollPane>
    </children>

@@ -46,57 +46,6 @@ public class Inventory extends Main {
     public static boolean[] caught = new boolean[151];
 
 
-    //creates pokemon panel
-    public static VBox newPane(String name, int list, boolean shiny) throws FileNotFoundException {
-        VBox pane = new VBox();
-        pane.setPrefSize(70,130);
-        String imageString = getImage(name, shiny);
-        Button button = new Button("Sell");
-        String cost = getCost(name, list, shiny);
-        Text textCost = new Text("$" + cost);
-        ImageView image = new ImageView(imageString);
-        Text pokemonName = new Text(name);
-
-        totalCost.add(Integer.parseInt(cost));
-
-        HBox hbox = new HBox();
-        hbox.getChildren().addAll(textCost, button);
-
-        if (shiny == true) {
-            pane.setBorder(new Border(new BorderStroke(Color.YELLOW, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        } else {
-            pane.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        }
-        pokemonName.setStyle("-fx-alignment: center");
-        pokemonName.setStyle("flex-direction: column");
-        pane.setStyle("-fx-background-color: #DCDCDC");
-        pokemonName.setTextAlignment(TextAlignment.CENTER);
-        pokemonName.setLayoutY(0.0);
-
-        hbox.setAlignment(Pos.CENTER);
-        pane.setAlignment(Pos.CENTER);
-        pane.setPadding(new Insets(10,10,10,10));
-        hbox.setSpacing(15.0);
-
-        EventHandler<ActionEvent> sell = new EventHandler<ActionEvent>() { 
-            public void handle(ActionEvent e) 
-            { 
-                coins.set(coins.get() + Integer.parseInt(cost));
-                ((FlowPane) pane.getParent()).getChildren().remove(pane);
-                Controller.paneList.remove(pane);
-                for (int i = 0; i < totalCost.size(); i++) {
-                    if (totalCost.get(i) == Integer.parseInt(cost)){
-                        totalCost.remove(i);
-                    }
-                }
-                
-                
-            } 
-        }; 
-        button.setOnAction(sell);
-        pane.getChildren().addAll(pokemonName, image, hbox);
-        return pane;
-    }
     
 
 

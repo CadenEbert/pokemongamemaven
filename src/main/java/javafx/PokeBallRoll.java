@@ -50,9 +50,9 @@ public class PokeBallRoll  {
                 break;
             }
         }   
-        VBox pane = Inventory.newPane(name, list, shiny);
-        Controller.paneList.add(pane);
+        PokemonPane pokemonPane = new PokemonPane(name, shiny, list);
+        Controller.paneList.add(pokemonPane.getPane());
         Main.coins.set(Main.coins.get() - cost);
-        return pane;
+        return pokemonPane.getPane();
     }
 }

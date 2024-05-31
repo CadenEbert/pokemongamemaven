@@ -121,6 +121,7 @@ public class Controller extends Main  {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        scene2 = true;
     }
 
     //updates badges and coins when switching scenes

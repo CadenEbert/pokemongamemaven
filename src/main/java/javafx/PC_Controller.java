@@ -23,7 +23,9 @@ public class PC_Controller extends Controller {
     private Button Exit;
 
     @FXML
-    public FlowPane pcInventory1;
+    FlowPane pcInventory1;
+
+    @FXML FlowPane pcInventory2;
 
     //switches to main scene
     @FXML
@@ -42,6 +44,7 @@ public class PC_Controller extends Controller {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        scene2 = false;
     }
 
     //updates panels when switching scenes
