@@ -9,11 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class PC_Controller extends Controller {
-    PC_Controller instance = null;
+    
 
     private Stage stage;
     private Scene scene;
@@ -26,6 +27,9 @@ public class PC_Controller extends Controller {
     FlowPane pcInventory1;
 
     @FXML FlowPane pcInventory2;
+
+
+
 
     //switches to main scene
     @FXML
@@ -47,7 +51,12 @@ public class PC_Controller extends Controller {
         scene2 = false;
     }
 
+    public void switchPane(VBox pane) {
+        pcInventory2.getChildren().add(pane);
+    }
+
     //updates panels when switching scenes
+    @Override
     public void update() {
         for (int i = 0; i < paneList.size(); i++) {
             pcInventory1.getChildren().add(paneList.get(i));

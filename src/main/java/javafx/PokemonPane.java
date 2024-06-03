@@ -68,27 +68,18 @@ public class PokemonPane {
 
         // Assuming 'pane' is your Pane object and 'targetFlowPane' is the FlowPane you
         // want to move the pane to
-        if (Main.scene2 == true) {
+        if (Main.scene2) {
             pane.setOnMouseClicked(event -> {
-                // Get the parent of the pane
-                try {
-                    Parent parent = pane.getParent();
+                Parent parent = pane.getParent();
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/PC.fxml"));
-                    root = loader.load();
-                    PC_Controller pc = loader.getController();
+                // Check if the parent is a FlowPane
+                if (parent instanceof FlowPane) {
+                    // Remove the pane from its current parent
+                    ((FlowPane) parent).getChildren().remove(pane);
 
-                    // Check if the parent is a FlowPane
-                    if (parent instanceof FlowPane) {
-                        // Remove the pane from its current parent
-                        ((FlowPane) parent).getChildren().remove(pane);
-
-                        // Add the pane to the target FlowPane
-                        pc.pcInventory2.getChildren().add(pane);
-                    }
-                } catch (IOException e) {
-                    // Handle the exception here
-                    e.printStackTrace();
+                    // Add the pane to the target FlowPane
+                    PC_Controller controller = new PC_Controller();
+                    controller.pcInventory2.getChildren().add(pane);
                 }
 
             });
@@ -98,7 +89,7 @@ public class PokemonPane {
             public void handle(ActionEvent e) {
                 Main.coins.set(Main.coins.get() + Integer.parseInt(cost));
                 ((FlowPane) pane.getParent()).getChildren().remove(pane);
-                Controller.paneList.remove(pane);
+                Main.paneList.remove(pane);
                 for (int i = 0; i < Inventory.totalCost.size(); i++) {
                     if (Inventory.totalCost.get(i) == Integer.parseInt(cost)) {
                         Inventory.totalCost.remove(i);

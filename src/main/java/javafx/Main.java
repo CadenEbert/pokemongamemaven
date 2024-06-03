@@ -14,11 +14,12 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
-        public static IntegerProperty coins = new SimpleIntegerProperty(100000);
+        public static final IntegerProperty coins = new SimpleIntegerProperty(100000);
         public static ArrayList<VBox> paneList = new ArrayList<VBox>();
         public static int currentBadge = 0;
         public static int multiplier = 1;
         public static boolean scene2 = false;
+        
         
         Parent root;
         
