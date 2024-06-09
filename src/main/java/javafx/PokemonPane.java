@@ -66,24 +66,13 @@ public class PokemonPane {
         this.pane.setPadding(new Insets(10, 10, 10, 10));
         this.hbox.setSpacing(15.0);
 
-        // Assuming 'pane' is your Pane object and 'targetFlowPane' is the FlowPane you
-        // want to move the pane to
-        if (Main.scene2) {
-            pane.setOnMouseClicked(event -> {
-                Parent parent = pane.getParent();
-
-                // Check if the parent is a FlowPane
-                if (parent instanceof FlowPane) {
-                    // Remove the pane from its current parent
-                    ((FlowPane) parent).getChildren().remove(pane);
-
-                    // Add the pane to the target FlowPane
-                    PC_Controller controller = new PC_Controller();
-                    controller.pcInventory2.getChildren().add(pane);
-                }
-
-            });
-        }
+        pane.setOnMouseClicked(event -> {
+            Parent parent = pane.getParent();
+            if (parent instanceof FlowPane) {
+                ((FlowPane) parent).getChildren().remove(pane);
+                // pcInventory2.getChildren().add(pane);
+            }
+        });
 
         EventHandler<ActionEvent> sell = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {

@@ -18,7 +18,8 @@ public class Main extends Application {
         public static ArrayList<VBox> paneList = new ArrayList<VBox>();
         public static int currentBadge = 0;
         public static int multiplier = 1;
-        public static boolean scene2 = false;
+        public static boolean scene2 = true;
+        
         
         
         Parent root;
@@ -38,7 +39,7 @@ public class Main extends Application {
                 primaryStage.setScene(new Scene(root));
                 primaryStage.show();
                 primaryStage.setOnCloseRequest(event -> {
-                        mainControl.executorService.shutdown();
+                mainControl.executorService.shutdown();
                 });
 
                 

@@ -9,12 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class PC_Controller extends Controller {
-    
 
     private Stage stage;
     private Scene scene;
@@ -26,12 +26,10 @@ public class PC_Controller extends Controller {
     @FXML
     FlowPane pcInventory1;
 
-    @FXML FlowPane pcInventory2;
+    @FXML
+    FlowPane pcInventory2;
 
-
-
-
-    //switches to main scene
+    // switches to main scene
     @FXML
     void switchToMain(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/gui.fxml"));
@@ -40,22 +38,20 @@ public class PC_Controller extends Controller {
         Controller mainControl = loader.getController();
         mainControl.update();
         Text coinsText = new Text();
-        coinsText.setStyle("-fx-font: 36 arial;");       
-        mainControl.textBox.getChildren().add(coinsText); 
+        coinsText.setStyle("-fx-font: 36 arial;");
+        mainControl.textBox.getChildren().add(coinsText);
         coinsText.textProperty().bind(coins.asString());
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); 
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
         scene2 = false;
     }
 
-    public void switchPane(VBox pane) {
-        pcInventory2.getChildren().add(pane);
-    }
+    
 
-    //updates panels when switching scenes
+    // updates panels when switching scenes
     @Override
     public void update() {
         for (int i = 0; i < paneList.size(); i++) {
@@ -63,5 +59,5 @@ public class PC_Controller extends Controller {
         }
 
     }
-    
+
 }

@@ -83,6 +83,9 @@ public class Controller extends Main  {
     private int trainerPeriod = 5;
     private int[] trainerCost = {300, 500, 1000, 2000};
     private String[] trainerList = {"Blackbelt", "Blue", "Red"};
+
+    FXMLLoader pcLoader = new FXMLLoader(getClass().getResource("fxml/PC.fxml"));
+    public static PC_Controller pc = new PC_Controller();
     
     
     //adds # of multiplier to coins
@@ -121,7 +124,6 @@ public class Controller extends Main  {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        scene2 = true;
     }
 
     //updates badges and coins when switching scenes
