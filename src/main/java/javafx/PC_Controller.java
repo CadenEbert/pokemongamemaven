@@ -9,8 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -46,7 +44,6 @@ public class PC_Controller extends Controller {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        scene2 = false;
     }
 
     
