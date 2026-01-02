@@ -25,7 +25,7 @@ public class Main extends Application {
         Parent root;
         
         public void start(Stage primaryStage) throws IOException {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/gui.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/gui.fxml"));
                 root = loader.load();
 
                 Controller mainControl = loader.getController();
