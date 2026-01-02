@@ -16,7 +16,7 @@ Screenshots
 
 ![Main screen](images/UI.png)
 
-![PC view](images/UI.png)
+![PC view](images/inventory.png)
 
 Project Layout
 --------------
