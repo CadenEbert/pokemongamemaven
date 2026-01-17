@@ -14,6 +14,7 @@ Requirements
 Screenshots
 ------------
 Main Screen
+
 ![Main screen](images/UI.png)
 
 Inventory and Pokeball Opening Example
